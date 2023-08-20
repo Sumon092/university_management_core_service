@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add uuid
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add sequelize
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Sumon\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\Sumon\AppData\Local\Microsoft\WindowsApps;C:\Users\Sumon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sumon\AppData\Roaming\npm;C:\Users\Sumon\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\6.0\bin\;
+  C:\Users\Sumon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Sumon\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Users\Sumon\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\Sumon\AppData\Local\Microsoft\WindowsApps;C:\Users\Sumon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sumon\AppData\Roaming\npm;C:\Users\Sumon\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\6.0\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
   1.22.19
@@ -14,8 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:26)
+  Error: EPERM: operation not permitted, unlink 'C:\PH-Next\SQL-Prisma\university-management-core-service-starter\node_modules\prisma\engines\6a3747c37ff169c90047725a05a6ef02e32ac97e\query_engine-windows.dll.node'
 
 npm manifest: 
   {
@@ -51,6 +50,7 @@ npm manifest:
       "typescript": "^5.0.4"
     },
     "dependencies": {
+      "@prisma/client": "^5.1.1",
       "@types/bcrypt": "^5.0.0",
       "@types/cookie-parser": "^1.4.3",
       "@types/jsonwebtoken": "^9.0.2",
@@ -62,6 +62,7 @@ npm manifest:
       "http-status": "^1.6.2",
       "jsonwebtoken": "^9.0.0",
       "prisma": "^5.1.1",
+      "uuid": "^9.0.0",
       "winston": "^3.9.0",
       "winston-daily-rotate-file": "^4.7.1",
       "zod": "^3.21.4"
@@ -200,6 +201,18 @@ Lockfile:
     dependencies:
       "@nodelib/fs.scandir" "2.1.5"
       fastq "^1.6.0"
+  
+  "@prisma/client@^5.1.1":
+    version "5.1.1"
+    resolved "https://registry.yarnpkg.com/@prisma/client/-/client-5.1.1.tgz#ea2b0c8599bdb3f86d92e8df46fba795a744db01"
+    integrity sha512-fxcCeK5pMQGcgCqCrWsi+I2rpIbk0rAhdrN+ke7f34tIrgPwA68ensrpin+9+fZvuV2OtzHmuipwduSY6HswdA==
+    dependencies:
+      "@prisma/engines-version" "5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e"
+  
+  "@prisma/engines-version@5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e":
+    version "5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e"
+    resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e.tgz#2e8a1f098ec09452dbe00923b24f582f95d1747c"
+    integrity sha512-owZqbY/wucbr65bXJ/ljrHPgQU5xXTSkmcE/JcbqE1kusuAXV/TLN3/exmz21SZ5rJ7WDkyk70J2G/n68iogbQ==
   
   "@prisma/engines@5.1.1":
     version "5.1.1"
@@ -2573,6 +2586,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
     integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+  
+  uuid@^9.0.0:
+    version "9.0.0"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+    integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
   
   v8-compile-cache-lib@^3.0.1:
     version "3.0.1"

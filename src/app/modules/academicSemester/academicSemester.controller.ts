@@ -6,6 +6,7 @@ import sendResponse from '../../../shared/sendResponse';
 import { academicSemesterService } from './academicSemester.services';
 
 const addSemester = catchAsync(async (req: Request, res: Response) => {
+  console.log('Parsed req.body:', req.body);
   const result = await academicSemesterService.addSemester(req.body);
   sendResponse<AcademicSemester>(res, {
     statusCode: httpStatus.OK,
