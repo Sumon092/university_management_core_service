@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\.e00e2a349a75420373612bfe87f179ef6905d0c5-audit.json",
+    "files": [
+        {
+            "date": 1692469832458,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-20-08-00-success.log",
+            "hash": "e881953a4cdd23d7b583eb9d2b545da2a941277f5a4681a4b7245cb7706d5e6c"
+        }
+    ],
+    "hashType": "sha256"
+}
