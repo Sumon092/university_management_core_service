@@ -1,9 +1,9 @@
 import { AcademicSemester, Prisma } from '@prisma/client';
-import { prisma } from '../../../constants/prisma';
+import prisma from '../../../constants/prisma';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { academicSemesterFilterAbleFields } from './academicSemester.constants';
+import { academicSemesterSearchAbleFields } from './academicSemester.constants';
 import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
 
 const addSemester = async (
@@ -23,11 +23,10 @@ const getAllSemester = async (
 
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
-  console.log(filterData, 'filterdata');
   const andCondition = [];
   if (searchTerm) {
     andCondition.push({
-      OR: academicSemesterFilterAbleFields.map(field => ({
+      OR: academicSemesterSearchAbleFields.map(field => ({
         [field]: { contains: searchTerm, mode: 'insensitive' },
       })),
     });
@@ -45,7 +44,7 @@ const getAllSemester = async (
   }
   /**
    * person={name:'sumon'}
-   * name=person[name]
+   * name=person[name ]
    */
   const whereConditions: Prisma.AcademicSemesterWhereInput =
     andCondition.length > 0 ? { AND: andCondition } : {};
@@ -54,6 +53,14 @@ const getAllSemester = async (
     where: whereConditions,
     skip,
     take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? {
+            [options.sortBy]: options.sortOrder,
+          }
+        : {
+            createdAt: 'desc',
+          },
   });
 
   const total = await prisma.academicSemester.count();
