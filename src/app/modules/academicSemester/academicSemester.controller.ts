@@ -17,7 +17,12 @@ const addSemester = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllSemester = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.query, ['searchTerm', 'year', 'code']);
+  const filters = pick(req.query, [
+    'searchTerm',
+    'startMonth',
+    'code',
+    'endMonth',
+  ]);
   const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
   const result = await academicSemesterService.getAllSemester(filters, options);
   sendResponse(res, {

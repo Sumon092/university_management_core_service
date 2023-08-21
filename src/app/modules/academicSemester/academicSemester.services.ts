@@ -1,8 +1,10 @@
-import { AcademicSemester } from '@prisma/client';
+import { AcademicSemester, Prisma } from '@prisma/client';
 import { prisma } from '../../../constants/prisma';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { academicSemesterFilterAbleFields } from './academicSemester.constants';
+import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
 
 const addSemester = async (
   academicSemesterData: AcademicSemester
@@ -14,15 +16,46 @@ const addSemester = async (
 };
 
 const getAllSemester = async (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  filters: any,
+  filters: IAcademicSemesterFilterRequest,
   options: IPaginationOptions
 ): Promise<IGenericResponse<AcademicSemester[]>> => {
+  console.log(filters);
+
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
+  const { searchTerm, ...filterData } = filters;
+  console.log(filterData, 'filterdata');
+  const andCondition = [];
+  if (searchTerm) {
+    andCondition.push({
+      OR: academicSemesterFilterAbleFields.map(field => ({
+        [field]: { contains: searchTerm, mode: 'insensitive' },
+      })),
+    });
+  }
+
+  if (Object.keys(filterData).length > 0) {
+    andCondition.push({
+      AND: Object.keys(filterData).map(key => ({
+        [key]: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          equals: (filterData as any)[key],
+        },
+      })),
+    });
+  }
+  /**
+   * person={name:'sumon'}
+   * name=person[name]
+   */
+  const whereConditions: Prisma.AcademicSemesterWhereInput =
+    andCondition.length > 0 ? { AND: andCondition } : {};
+
   const result = await prisma.academicSemester.findMany({
+    where: whereConditions,
     skip,
     take: limit,
   });
+
   const total = await prisma.academicSemester.count();
   return {
     meta: {
