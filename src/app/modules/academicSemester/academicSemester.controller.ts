@@ -27,13 +27,24 @@ const getAllSemester = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Semester added successfully',
+    message: 'Semesters fetched successfully',
     meta: result.meta,
     data: result.data,
+  });
+});
+const getSemester = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.params);
+  const result = await academicSemesterService.getSemester(req.params.id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester get successfully',
+    data: result,
   });
 });
 
 export const semesterController = {
   addSemester,
   getAllSemester,
+  getSemester,
 };
