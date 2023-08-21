@@ -5,6 +5,7 @@ import { academicSemesterValidation } from './academicSemester.validation';
 
 const router = express.Router();
 
+router.get('/', semesterController.getAllSemester);
 router.post(
   '/add-semester',
   validateRequest(academicSemesterValidation.create),

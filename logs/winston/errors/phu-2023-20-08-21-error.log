@@ -92,3 +92,39 @@ Sun Aug 20 2023 21:32:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
     "message": "end month is required"
   }
 ]
+Sun Aug 20 2023 21:35:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "code"
+    ],
+    "message": "code is required"
+  }
+]
+Sun Aug 20 2023 21:37:27 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "code"
+    ],
+    "message": "code is required"
+  }
+]
+Sun Aug 20 2023 21:39:40 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "startMonth"
+    ],
+    "message": "start month is required"
+  }
+]
