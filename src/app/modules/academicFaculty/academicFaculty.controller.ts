@@ -15,6 +15,16 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getFaculties = catchAsync(async (req: Request, res: Response) => {
+  const result = await academicFacultyService.getFaculties();
+
+  sendResponse<AcademicFaculty>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'academic faculties fetched successfully',
+    data: result,
+  });
+});
 const getFaculty = catchAsync(async (req: Request, res: Response) => {
   const result = await academicFacultyService.getFaculty(req.params.id);
 
@@ -28,5 +38,6 @@ const getFaculty = catchAsync(async (req: Request, res: Response) => {
 
 export const academicFacultyController = {
   createFaculty,
+  getFaculties,
   getFaculty,
 };
