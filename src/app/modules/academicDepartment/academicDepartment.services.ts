@@ -1,8 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AcademicDepartment } from '@prisma/client';
+import { AcademicDepartment, Prisma } from '@prisma/client';
 import prisma from '../../../constants/prisma';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import {
+  academicDepartmentRelationalFields,
+  academicDepartmentRelationalFieldsMapper,
+  academicDepartmentSearchableFields,
+} from './academicDepartment.constant';
 import { IAcademicDepartmentFilterRequest } from './academicDepartment.interface';
 
 const createDepartment = async (
@@ -15,15 +21,17 @@ const createDepartment = async (
 };
 
 const getDepartments = async (
-  options: IPaginationOptions,
-  filters: IAcademicDepartmentFilterRequest
-) => {
-  const { page, limit, skip } = paginationHelpers.calculatePagination(options);
+  filters: IAcademicDepartmentFilterRequest,
+  options: IPaginationOptions
+): Promise<IGenericResponse<AcademicDepartment[]>> => {
+  const { limit, page, skip } = paginationHelpers.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
+
   const andConditions = [];
+
   if (searchTerm) {
     andConditions.push({
-      OR: ['title', 'academicFacultyId'].map(field => ({
+      OR: academicDepartmentSearchableFields.map(field => ({
         [field]: {
           contains: searchTerm,
           mode: 'insensitive',
@@ -31,30 +39,57 @@ const getDepartments = async (
       })),
     });
   }
+
   if (Object.keys(filterData).length > 0) {
     andConditions.push({
-      AND: Object.keys(filterData).map(key => ({
-        [key]: {
-          equals: (filterData as any)[key],
-        },
-      })),
+      AND: Object.keys(filterData).map(key => {
+        if (academicDepartmentRelationalFields.includes(key)) {
+          return {
+            [academicDepartmentRelationalFieldsMapper[key]]: {
+              id: (filterData as any)[key],
+            },
+          };
+        } else {
+          return {
+            [key]: {
+              equals: (filterData as any)[key],
+            },
+          };
+        }
+      }),
     });
   }
+
+  const whereConditions: Prisma.AcademicDepartmentWhereInput =
+    andConditions.length > 0 ? { AND: andConditions } : {};
+
   const result = await prisma.academicDepartment.findMany({
+    include: {
+      academicFaculty: true,
+    },
+    where: whereConditions,
     skip,
     take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? { [options.sortBy]: options.sortOrder }
+        : {
+            createdAt: 'desc',
+          },
   });
-  const total = await prisma.academicDepartment.count();
+  const total = await prisma.academicDepartment.count({
+    where: whereConditions,
+  });
+
   return {
     meta: {
+      total,
       page,
       limit,
-      total,
     },
     data: result,
   };
 };
-
 export const academicDepartmentService = {
   createDepartment,
   getDepartments,

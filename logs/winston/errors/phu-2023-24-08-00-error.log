@@ -1,0 +1,210 @@
+Thu Aug 24 2023 0:3:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:3:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:15:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:19:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:22:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "asc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:23:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "asc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
+Thu Aug 24 2023 0:27:43 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            page: {
+              equals: "1"
+            }
+          },
+          {
+            limit: {
+              equals: "2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "asc"
+  }
+}
+
+Unknown argument `page`. Available options are listed in green.
