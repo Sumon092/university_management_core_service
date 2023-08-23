@@ -1,0 +1,30 @@
+Wed Aug 23 2023 23:19:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of EEE",
++   academicFaculty: {
++     create: AcademicFacultyCreateWithoutAcademicDepartmentsInput | AcademicFacultyUncheckedCreateWithoutAcademicDepartmentsInput,
++     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicDepartmentsInput,
++     connect: AcademicFacultyWhereUniqueInput
++   }
+  }
+}
+
+Argument `academicFaculty` is missing.
+Wed Aug 23 2023 23:20:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of EEE",
++   academicFaculty: {
++     create: AcademicFacultyCreateWithoutAcademicDepartmentsInput | AcademicFacultyUncheckedCreateWithoutAcademicDepartmentsInput,
++     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicDepartmentsInput,
++     connect: AcademicFacultyWhereUniqueInput
++   }
+  }
+}
+
+Argument `academicFaculty` is missing.
