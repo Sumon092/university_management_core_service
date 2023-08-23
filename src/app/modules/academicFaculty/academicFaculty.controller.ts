@@ -2,6 +2,7 @@ import { AcademicFaculty } from '@prisma/client';
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
+import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { academicFacultyService } from './academicFaculty.services';
 
@@ -16,13 +17,16 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const getFaculties = catchAsync(async (req: Request, res: Response) => {
-  const result = await academicFacultyService.getFaculties();
+  const filters = pick(req.params, ['searchTerm', 'id']);
+  const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
+  const result = await academicFacultyService.getFaculties(filters, options);
 
-  sendResponse<AcademicFaculty>(res, {
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'academic faculties fetched successfully',
-    data: result,
+    meta: result.meta,
+    data: result.data,
   });
 });
 const getFaculty = catchAsync(async (req: Request, res: Response) => {
