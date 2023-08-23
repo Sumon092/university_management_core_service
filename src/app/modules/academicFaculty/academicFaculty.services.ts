@@ -10,6 +10,15 @@ const createFaculty = async (
   return result;
 };
 
+const getFaculty = async (id: string): Promise<AcademicFaculty | null> => {
+  const result = await prisma.academicFaculty.findUnique({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
 export const academicFacultyService = {
   createFaculty,
+  getFaculty,
 };
