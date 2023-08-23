@@ -4,6 +4,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
+import { academicFacultySearchAbleFields } from './academicFaculty.constants';
 import { academicFacultyService } from './academicFaculty.services';
 
 const createFaculty = catchAsync(async (req: Request, res: Response) => {
@@ -17,7 +18,7 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 const getFaculties = catchAsync(async (req: Request, res: Response) => {
-  const filters = pick(req.params, ['searchTerm', 'id']);
+  const filters = pick(req.query, academicFacultySearchAbleFields);
   const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
   const result = await academicFacultyService.getFaculties(filters, options);
 

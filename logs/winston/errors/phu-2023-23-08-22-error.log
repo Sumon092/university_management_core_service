@@ -1,0 +1,28 @@
+Wed Aug 23 2023 22:5:42 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicFaculty.findMany()` invocation:
+
+{
+  where: {},
+  skip: 0,
+  take: 2,
+  orderBy: {
+    title: "title"
+           ~~~~~~~
+  }
+}
+
+Invalid value for argument `title`. Expected SortOrder.
+Wed Aug 23 2023 22:11:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicFaculty.findMany()` invocation:
+
+{
+  where: {},
+  skip: 0,
+  take: 2,
+  orderBy: {
+    title: "dsc"
+           ~~~~~
+  }
+}
+
+Invalid value for argument `title`. Expected SortOrder.
