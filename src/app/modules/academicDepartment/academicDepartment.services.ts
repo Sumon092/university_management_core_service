@@ -90,7 +90,22 @@ const getDepartments = async (
     data: result,
   };
 };
+
+const getDepartment = async (
+  id: string
+): Promise<AcademicDepartment | null> => {
+  const result = await prisma.academicDepartment.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      academicFaculty: true,
+    },
+  });
+  return result;
+};
 export const academicDepartmentService = {
   createDepartment,
   getDepartments,
+  getDepartment,
 };
