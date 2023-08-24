@@ -13,5 +13,6 @@ router.post(
 router.get('/', studentController.getStudents);
 router.get('/:id', studentController.getStudent);
 router.patch('/update/:id', studentController.updateStudent);
+router.delete('/delete/:id', studentController.deleteStudent);
 
 export const studentRoutes = router;
