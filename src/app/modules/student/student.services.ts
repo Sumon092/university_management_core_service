@@ -29,8 +29,6 @@ const getStudents = async (
 ): Promise<IGenericResponse<Student[]>> => {
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
-  console.log(filterData, 'filter data');
-  console.log(searchTerm, 'searchTerm');
   const andConditions = [];
   if (searchTerm) {
     andConditions.push({
@@ -92,7 +90,22 @@ const getStudents = async (
   };
 };
 
+const getStudent = async (id: string): Promise<Student | null> => {
+  const result = await prisma.student.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      academicDepartment: true,
+      academicFaculty: true,
+      academicSemester: true,
+    },
+  });
+  return result;
+};
+
 export const studentService = {
   createStudent,
   getStudents,
+  getStudent,
 };

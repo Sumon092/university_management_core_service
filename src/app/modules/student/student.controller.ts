@@ -19,21 +19,31 @@ const createStudent = catchAsync(async (req: Request, res: Response) => {
 
 const getStudents = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, studentFilterableFields);
-  console.log(req.query, 'query');
-  console.log(filters, 'filters');
   const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
   const result = await studentService.getStudents(filters, options);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Student data fetched successfully',
+    message: 'Students data fetched successfully',
     meta: result.meta,
     data: result.data,
+  });
+});
+const getStudent = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await studentService.getStudent(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student data fetched successfully',
+    data: result,
   });
 });
 
 export const studentController = {
   createStudent,
   getStudents,
+  getStudent,
 };
