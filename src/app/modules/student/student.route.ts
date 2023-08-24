@@ -12,5 +12,6 @@ router.post(
 );
 router.get('/', studentController.getStudents);
 router.get('/:id', studentController.getStudent);
+router.patch('/update/:id', studentController.updateStudent);
 
 export const studentRoutes = router;
