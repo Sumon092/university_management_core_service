@@ -34,3 +34,31 @@ Thu Aug 24 2023 17:15:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
     "message": "Title is required"
   }
 ]
+Thu Aug 24 2023 17:39:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+{
+  data: {
+    studentId: "ST123456",
+    firstName: "John",
+    lastName: "Doe",
+    middleName: "",
+    profileImage: "https://example.com/profile.jpg",
+    email: "john.doe@example.com",
+    contactNo: "123-456-7890",
+    gender: "Male",
+    bloodGroup: "A+",
++   academicSemester: {
++     create: AcademicSemesterCreateWithoutStudentsInput | AcademicSemesterUncheckedCreateWithoutStudentsInput,
++     connectOrCreate: AcademicSemesterCreateOrConnectWithoutStudentsInput,
++     connect: AcademicSemesterWhereUniqueInput
++   }
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Argument `academicSemester` is missing.

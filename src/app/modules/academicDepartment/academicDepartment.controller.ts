@@ -19,7 +19,6 @@ const createDepartment = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getDepartments = catchAsync(async (req: Request, res: Response) => {
-  console.log(req.query);
   const filters = pick(req.query, academicDepartmentFilterableFields);
   const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
   const result = await academicDepartmentService.getDepartments(
