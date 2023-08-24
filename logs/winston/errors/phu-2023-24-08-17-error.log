@@ -62,3 +62,15 @@ Invalid `prisma.student.create()` invocation:
 }
 
 Argument `academicSemester` is missing.
+Thu Aug 24 2023 17:53:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "Student id is required"
+  }
+]

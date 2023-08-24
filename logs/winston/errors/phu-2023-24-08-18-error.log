@@ -1,0 +1,144 @@
+Thu Aug 24 2023 18:35:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.findMany()` invocation:
+
+{
+  skip: 0,
+  take: 2,
+  orderBy: {
+    fullName: "desc",
+    ~~~~~~~~
+?   id?: SortOrder,
+?   studentId?: SortOrder,
+?   firstName?: SortOrder,
+?   lastName?: SortOrder,
+?   middleName?: SortOrder,
+?   profileImage?: SortOrder,
+?   email?: SortOrder,
+?   contactNo?: SortOrder,
+?   gender?: SortOrder,
+?   bloodGroup?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   academicSemesterId?: SortOrder,
+?   academicDepartmentId?: SortOrder,
+?   academicFacultyId?: SortOrder,
+?   academicSemester?: AcademicSemesterOrderByWithRelationInput,
+?   academicDepartment?: AcademicDepartmentOrderByWithRelationInput,
+?   academicFaculty?: AcademicFacultyOrderByWithRelationInput
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `fullName`. Available options are listed in green.
+Thu Aug 24 2023 18:38:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.findMany()` invocation:
+
+{
+  skip: 0,
+  take: 2,
+  orderBy: {
+    fullName: "desc",
+    ~~~~~~~~
+?   id?: SortOrder,
+?   studentId?: SortOrder,
+?   firstName?: SortOrder,
+?   lastName?: SortOrder,
+?   middleName?: SortOrder,
+?   profileImage?: SortOrder,
+?   email?: SortOrder,
+?   contactNo?: SortOrder,
+?   gender?: SortOrder,
+?   bloodGroup?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   academicSemesterId?: SortOrder,
+?   academicDepartmentId?: SortOrder,
+?   academicFacultyId?: SortOrder,
+?   academicSemester?: AcademicSemesterOrderByWithRelationInput,
+?   academicDepartment?: AcademicDepartmentOrderByWithRelationInput,
+?   academicFaculty?: AcademicFacultyOrderByWithRelationInput
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `fullName`. Available options are listed in green.
+Thu Aug 24 2023 18:47:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.findMany()` invocation:
+
+{
+  skip: 0,
+  take: 2,
+  orderBy: {
+    fullName: "desc",
+    ~~~~~~~~
+?   id?: SortOrder,
+?   studentId?: SortOrder,
+?   firstName?: SortOrder,
+?   lastName?: SortOrder,
+?   middleName?: SortOrder,
+?   profileImage?: SortOrder,
+?   email?: SortOrder,
+?   contactNo?: SortOrder,
+?   gender?: SortOrder,
+?   bloodGroup?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   academicSemesterId?: SortOrder,
+?   academicDepartmentId?: SortOrder,
+?   academicFacultyId?: SortOrder,
+?   academicSemester?: AcademicSemesterOrderByWithRelationInput,
+?   academicDepartment?: AcademicDepartmentOrderByWithRelationInput,
+?   academicFaculty?: AcademicFacultyOrderByWithRelationInput
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `fullName`. Available options are listed in green.
+Thu Aug 24 2023 18:51:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.findMany()` invocation:
+
+{
+  skip: 0,
+  take: 2,
+  orderBy: {
+    startMonth: "desc",
+    ~~~~~~~~~~
+?   id?: SortOrder,
+?   studentId?: SortOrder,
+?   firstName?: SortOrder,
+?   lastName?: SortOrder,
+?   middleName?: SortOrder,
+?   profileImage?: SortOrder,
+?   email?: SortOrder,
+?   contactNo?: SortOrder,
+?   gender?: SortOrder,
+?   bloodGroup?: SortOrder,
+?   createdAt?: SortOrder,
+?   updatedAt?: SortOrder,
+?   academicSemesterId?: SortOrder,
+?   academicDepartmentId?: SortOrder,
+?   academicFacultyId?: SortOrder,
+?   academicSemester?: AcademicSemesterOrderByWithRelationInput,
+?   academicDepartment?: AcademicDepartmentOrderByWithRelationInput,
+?   academicFaculty?: AcademicFacultyOrderByWithRelationInput
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `startMonth`. Available options are listed in green.

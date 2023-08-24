@@ -2,7 +2,9 @@ import { Student } from '@prisma/client';
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
+import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
+import { studentFilterableFields } from './student.constant';
 import { studentService } from './student.services';
 
 const createStudent = catchAsync(async (req: Request, res: Response) => {
@@ -15,6 +17,23 @@ const createStudent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getStudents = catchAsync(async (req: Request, res: Response) => {
+  const filters = pick(req.query, studentFilterableFields);
+  console.log(req.query, 'query');
+  console.log(filters, 'filters');
+  const options = pick(req.query, ['page', 'limit', 'sortBy', 'sortOrder']);
+  const result = await studentService.getStudents(filters, options);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student data fetched successfully',
+    meta: result.meta,
+    data: result.data,
+  });
+});
+
 export const studentController = {
   createStudent,
+  getStudents,
 };

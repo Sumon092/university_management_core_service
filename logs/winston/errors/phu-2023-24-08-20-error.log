@@ -1,0 +1,85 @@
+Thu Aug 24 2023 20:2:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            studentId: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicSemesterId: {
+              contains: "firstName",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
