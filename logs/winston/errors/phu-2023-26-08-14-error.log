@@ -1,0 +1,22 @@
+Sat Aug 26 2023 14:39:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "studentId"
+    ],
+    "message": "Student id is required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "contactNo"
+    ],
+    "message": "Contact no is required"
+  }
+]
