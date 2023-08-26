@@ -1,0 +1,504 @@
+Sat Aug 26 2023 16:11:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 1,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Sat Aug 26 2023 16:12:1 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Sat Aug 26 2023 16:14:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Sat Aug 26 2023 16:15:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Sat Aug 26 2023 16:15:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Sat Aug 26 2023 16:15:18 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            facultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            email: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            contactNo: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            bloodGroup: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            gender: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicFacultyId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            academicDepartmentId: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          },
+          {
+            designation: {
+              contains: "mahfuzul",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
