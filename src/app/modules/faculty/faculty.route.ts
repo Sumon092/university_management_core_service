@@ -9,5 +9,6 @@ router.post(
   validateRequest(facultyValidation.create),
   facultyController.createFacultyData
 );
+router.get('/', facultyController.getFaculties);
 
 export const facultyRoutes = router;
