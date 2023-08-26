@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AcademicFaculty, Prisma } from '@prisma/client';
 import prisma from '../../../constants/prisma';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
@@ -35,7 +36,6 @@ const getFaculties = async (
     andConditions.push({
       AND: Object.keys(filterData).map(key => ({
         [key]: {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           equals: (filterData as any)[key],
         },
       })),

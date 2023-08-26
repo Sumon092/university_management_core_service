@@ -42,20 +42,22 @@ const getStudents = async (
   }
 
   if (Object.keys(filterData).length > 0) {
-    Object.keys(filterData).map(key => {
-      if (studentRelationalFields.includes(key)) {
-        return {
-          [studentRelationalFieldsMapper[key]]: {
-            id: (filterData as any)[key],
-          },
-        };
-      } else {
-        return {
-          [key]: {
-            equals: (filterData as any)[key],
-          },
-        };
-      }
+    andConditions.push({
+      AND: Object.keys(filterData).map(key => {
+        if (studentRelationalFields.includes(key)) {
+          return {
+            [studentRelationalFieldsMapper[key]]: {
+              id: (filterData as any)[key],
+            },
+          };
+        } else {
+          return {
+            [key]: {
+              equals: (filterData as any)[key],
+            },
+          };
+        }
+      }),
     });
   }
   const whereConditions: Prisma.StudentWhereInput =
