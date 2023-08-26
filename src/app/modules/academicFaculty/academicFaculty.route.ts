@@ -12,6 +12,11 @@ router.post(
   validateRequest(AcademicFacultyValidation.create),
   academicFacultyController.createFaculty
 );
-router.patch('/update/:id', academicFacultyController.updateFaculty);
+router.patch(
+  '/update/:id',
+  validateRequest(AcademicFacultyValidation.update),
+  academicFacultyController.updateFaculty
+);
+router.delete('/delete/:id', academicFacultyController.deleteFaculty);
 
 export const academicFacultyRoutes = router;
