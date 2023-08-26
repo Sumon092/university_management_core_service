@@ -120,9 +120,22 @@ const updateDepartment = async (
   });
   return result;
 };
+
+const deleteDepartment = async (id: string) => {
+  const result = await prisma.academicDepartment.delete({
+    where: {
+      id,
+    },
+    include: {
+      academicFaculty: true,
+    },
+  });
+  return result;
+};
 export const academicDepartmentService = {
   createDepartment,
   getDepartments,
   getDepartment,
   updateDepartment,
+  deleteDepartment,
 };

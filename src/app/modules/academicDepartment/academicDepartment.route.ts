@@ -17,5 +17,6 @@ router.patch(
   validateRequest(AcademicDepartmentValidation.update),
   departmentController.updateDepartment
 );
+router.delete('/delete/:id', departmentController.deleteDepartment);
 
 export const departmentRoutes = router;

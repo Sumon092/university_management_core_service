@@ -1,0 +1,25 @@
+Sat Aug 26 2023 13:1:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.update()` invocation:
+
+{
+  where: {
+    id: "5df40063-109e-40cb-be6a-0b068f357e9d"
+  },
+  data: {
+    titles: "Department of English Literature",
+    ~~~~~~
+    academicFacultyId: "93915696-ca15-4f89-bdae-b4425b606f72",
+?   id?: String | StringFieldUpdateOperationsInput,
+?   title?: String | StringFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   academicFaculty?: AcademicFacultyUpdateOneRequiredWithoutAcademicDepartmentsNestedInput,
+?   students?: StudentUpdateManyWithoutAcademicDepartmentNestedInput,
+?   faculties?: FacultyUpdateManyWithoutAcademicDepartmentNestedInput
+  },
+  include: {
+    academicFaculty: true
+  }
+}
+
+Unknown argument `titles`. Did you mean `title`? Available options are listed in green.
