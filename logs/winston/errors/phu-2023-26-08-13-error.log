@@ -95,3 +95,8 @@ Invalid `prisma.academicFaculty.update()` invocation:
 }
 
 Unknown argument `titles`. Did you mean `title`? Available options are listed in green.
+Sat Aug 26 2023 13:36:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicFaculty.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `academic-departments_academicFacultyId_fkey (index)`

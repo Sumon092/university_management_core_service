@@ -12,4 +12,10 @@ router.post(
   validateRequest(academicSemesterValidation.create),
   semesterController.addSemester
 );
+router.post(
+  '/update/:id',
+  validateRequest(academicSemesterValidation.update),
+  semesterController.addSemester
+);
+router.delete('/delete/:id',semesterController.deleteSemester)
 export const academicSemesterRoute = router;

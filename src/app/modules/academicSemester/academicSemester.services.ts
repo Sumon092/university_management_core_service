@@ -81,8 +81,35 @@ const getSemester = async (id: string): Promise<AcademicSemester | null> => {
   });
   return result;
 };
+
+const updateSemester = async (
+  id: string,
+  payLoad: Partial<AcademicSemester>
+): Promise<AcademicSemester | null> => {
+  const result = await prisma.academicSemester.update({
+    where: {
+      id,
+    },
+    data: payLoad,
+    include: {
+      students: true,
+    },
+  });
+  return result;
+};
+
+const deleteSemester = async (id: string): Promise<AcademicSemester | null> => {
+  const result = await prisma.academicSemester.delete({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
 export const academicSemesterService = {
   addSemester,
   getAllSemester,
   getSemester,
+  updateSemester,
+  deleteSemester,
 };
