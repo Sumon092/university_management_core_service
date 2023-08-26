@@ -12,5 +12,6 @@ router.post(
   validateRequest(AcademicFacultyValidation.create),
   academicFacultyController.createFaculty
 );
+router.patch('/update/:id', academicFacultyController.updateFaculty);
 
 export const academicFacultyRoutes = router;
