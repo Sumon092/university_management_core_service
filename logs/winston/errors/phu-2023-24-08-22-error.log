@@ -1,0 +1,42 @@
+Thu Aug 24 2023 22:2:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.update()` invocation:
+
+{
+  where: {
+    id: "4bd07521-b70a-459b-83ec-a53a69c46710"
+  },
+  data: {
+    studentI: "ST123460",
+    ~~~~~~~~
+    firstName: "Mahadi",
+    lastName: "Nishat",
+    middleName: "",
+    profileImage: "https://example.com/profile.jpg",
+    email: "m.mahadi@gmail.com",
+    contactNo: "123-456-7890",
+    gender: "Male",
+    bloodGroup: "O+",
+    academicSemesterId: "3ff88771-7400-4a89-b75a-e922e8a973a6",
+    academicDepartmentId: "895b00e3-2b0b-4ded-8cba-12f56d071101",
+    academicFacultyId: "313de3a4-0a96-43a8-a79c-4283fc8b3655",
+?   id?: String | StringFieldUpdateOperationsInput,
+?   studentId?: String | StringFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   academicSemester?: AcademicSemesterUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicDepartment?: AcademicDepartmentUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicFaculty?: AcademicFacultyUpdateOneRequiredWithoutStudentsNestedInput
+  },
+  include: {
+    academicDepartment: true,
+    academicFaculty: true,
+    academicSemester: true
+  }
+}
+
+Unknown argument `studentI`. Did you mean `studentId`? Available options are listed in green.
+Thu Aug 24 2023 22:11:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

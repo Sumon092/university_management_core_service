@@ -113,6 +113,11 @@ const updateStudent = async (
       id,
     },
     data: payload,
+    include: {
+      academicDepartment: true,
+      academicFaculty: true,
+      academicSemester: true,
+    },
   });
   return result;
 };
@@ -121,6 +126,11 @@ const deleteStudent = async (id: string): Promise<Student | null> => {
   const deletedId = await prisma.student.delete({
     where: {
       id,
+    },
+    include: {
+      academicDepartment: true,
+      academicFaculty: true,
+      academicSemester: true,
     },
   });
   return deletedId;

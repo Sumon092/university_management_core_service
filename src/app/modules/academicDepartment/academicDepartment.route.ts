@@ -12,5 +12,6 @@ router.post(
 );
 router.get('/', departmentController.getDepartments);
 router.get('/:id', departmentController.getDepartment);
+router.patch('/update/:id', departmentController.updateDepartment);
 
 export const departmentRoutes = router;
