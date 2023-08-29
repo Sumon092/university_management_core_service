@@ -1,0 +1,41 @@
+Wed Aug 30 2023 1:22:18 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "buildingId"
+    ],
+    "message": "Building is required"
+  }
+]
+Wed Aug 30 2023 1:22:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.room.create()` invocation:
+
+{
+  data: {
+    title: "Office",
+    ~~~~~
+    room_number: "100",
+    floor: "First Floor",
+    buildingId: "ad787a57-761b-4e11-9e05-809458665352",
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `title`. Available options are listed in green.
+Wed Aug 30 2023 1:23:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "title"
+    ],
+    "message": "Title is required"
+  }
+]

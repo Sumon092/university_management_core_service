@@ -9,7 +9,11 @@ const createBuilding = async (data: Building): Promise<Building> => {
 };
 
 const getAllBuilding = async (): Promise<Building[]> => {
-  const result = await prisma.building.findMany();
+  const result = await prisma.building.findMany({
+    include: {
+      rooms: true,
+    },
+  });
 
   return result;
 };
@@ -18,6 +22,9 @@ const getSingleBuilding = async (id: string): Promise<Building | null> => {
   const result = await prisma.building.findUnique({
     where: {
       id,
+    },
+    include: {
+      rooms: true,
     },
   });
   return result;
@@ -32,6 +39,9 @@ const updateBuilding = async (
       id,
     },
     data: payload,
+    include: {
+      rooms: true,
+    },
   });
   return result;
 };
