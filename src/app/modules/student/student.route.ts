@@ -13,14 +13,35 @@ router.post(
   validateRequest(StudentValidation.create),
   studentController.createStudent
 );
-router.get('/', studentController.getStudents);
-router.get('/:id', studentController.getStudent);
+router.get(
+  '/',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY
+  ),
+  studentController.getStudents
+);
+router.get(
+  '/:id',
+  auth(
+    ENUM_USER_ROLE.SUPER_ADMIN,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT
+  ),
+  studentController.getStudent
+);
 router.patch(
   '/update/:id',
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   validateRequest(StudentValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   studentController.updateStudent
 );
-router.delete('/delete/:id', studentController.deleteStudent);
+router.delete(
+  '/delete/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  studentController.deleteStudent
+);
 
 export const studentRoutes = router;
