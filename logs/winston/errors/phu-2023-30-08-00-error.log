@@ -1,0 +1,24 @@
+Wed Aug 30 2023 0:43:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "title"
+    ],
+    "message": "Title is required"
+  }
+]
+Wed Aug 30 2023 0:43:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "title"
+    ],
+    "message": "Title is required"
+  }
+]
