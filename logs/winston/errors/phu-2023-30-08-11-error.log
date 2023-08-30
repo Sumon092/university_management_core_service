@@ -1,0 +1,29 @@
+Wed Aug 30 2023 11:30:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'page')
+Wed Aug 30 2023 11:52:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.building.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            sortBy: {
+              equals: "title"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    rooms: true
+  }
+}
+
+Unknown argument `sortBy`. Available options are listed in green.

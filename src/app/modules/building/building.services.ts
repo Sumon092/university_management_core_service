@@ -1,5 +1,14 @@
-import { Building } from '@prisma/client';
+import { Building, Prisma } from '@prisma/client';
 import prisma from '../../../constants/prisma';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
+import {
+  buildingRelationalFields,
+  buildingRelationalFieldsMapper,
+  buildingSearchableFields,
+} from './building.constants';
+import { IBuildingFilterRequest } from './building.interface';
 
 const createBuilding = async (data: Building): Promise<Building> => {
   const result = await prisma.building.create({
@@ -8,14 +17,72 @@ const createBuilding = async (data: Building): Promise<Building> => {
   return result;
 };
 
-const getAllBuilding = async (): Promise<Building[]> => {
+const getAllBuilding = async (
+  filters: IBuildingFilterRequest,
+  options: IPaginationOptions
+): Promise<IGenericResponse<Building[]>> => {
+  const { page, limit, skip } = paginationHelpers.calculatePagination(options);
+  const { searchTerm, ...filterData } = filters;
+  const andConditions = [];
+  if (searchTerm) {
+    andConditions.push({
+      OR: buildingSearchableFields.map(field => ({
+        [field]: {
+          contains: searchTerm,
+          mode: 'insensitive',
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filterData).length > 0) {
+    const filterConditions = Object.keys(filterData).map(key => {
+      if (buildingRelationalFields.includes(key)) {
+        return {
+          [buildingRelationalFieldsMapper[key]]: {
+            id: (filterData as any)[key],
+          },
+        };
+      } else {
+        return {
+          [key]: {
+            equals: (filterData as any)[key],
+          },
+        };
+      }
+    });
+    andConditions.push({
+      AND: filterConditions,
+    });
+  }
+  const whereConditions: Prisma.BuildingWhereInput =
+    andConditions.length > 0 ? { AND: andConditions } : {};
   const result = await prisma.building.findMany({
+    where: whereConditions,
+    skip,
+    take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? {
+            [options.sortBy]: options.sortOrder,
+          }
+        : { createdAt: 'desc' },
     include: {
       rooms: true,
     },
   });
+  const total = await prisma.building.count({
+    where: whereConditions,
+  });
 
-  return result;
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
 };
 
 const getSingleBuilding = async (id: string): Promise<Building | null> => {

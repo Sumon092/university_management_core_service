@@ -20,8 +20,8 @@ const createRoom = async (data: Room): Promise<Room> => {
   return result;
 };
 
-export const getAllRoom  = async (
-  filters: IRoomsFilterRequest,
+export const getAllRoom = async (
+  filters: IRoomsFilterRequest, 
   options: IPaginationOptions
 ): Promise<IGenericResponse<Room[]>> => {
   const { page, limit, sortBy, sortOrder, skip } =
