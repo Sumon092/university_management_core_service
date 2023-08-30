@@ -8,18 +8,21 @@ const create = z.object({
     code: z.string({
       required_error: 'code is required',
     }),
-    credits: z.string({
+    credits: z.number({
       required_error: 'credit is required',
     }),
-    preRequisite: z.string({
-      required_error: 'prerequisite is required',
-    }),
-    preRequisiteFor: z.string({
-      required_error: 'prerequisiteFor is required',
-    }),
+    preRequisiteCourses: z
+      .array(
+        z.object({
+          courseId: z.string(),
+        })
+      )
+      .refine(courses => courses.length > 0, {
+        message: 'At least one preRequisiteCourse is required',
+      }),
   }),
 });
 
-const CourseValidationSchema = {
+export const CourseValidationSchema = {
   create,
 };

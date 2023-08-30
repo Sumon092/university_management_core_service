@@ -1,0 +1,513 @@
+Wed Aug 30 2023 17:5:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "cse-102",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "cse-102",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "cse-102",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:5:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:7:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "03",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:8:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:9:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            title: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            code: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          },
+          {
+            credits: {
+              contains: "cse",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Wed Aug 30 2023 17:37:13 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        AND: [
+          {
+            credits: {
+              equals: "1"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  },
+  include: {
+    preRequisite: true,
+    preRequisiteFor: true
+  }
+}
+
+Argument `equals`: Invalid value provided. Expected Int or IntFieldRefInput, provided String.
+Wed Aug 30 2023 17:55:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "credits"
+    ],
+    "message": "Expected string, received number"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "preRequisiteCourses"
+    ],
+    "message": "Required"
+  }
+]
