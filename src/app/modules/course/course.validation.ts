@@ -22,7 +22,22 @@ const create = z.object({
       }),
   }),
 });
+const update = z.object({
+  body: z.object({
+    title: z.string().optional(),
+    code: z.string().optional(),
+    credits: z.number().optional(),
+    preRequisiteCourses: z
+      .array(
+        z.object({
+          courseId: z.string(),
+        })
+      )
+      .optional(),
+  }),
+});
 
 export const CourseValidationSchema = {
   create,
+  update,
 };

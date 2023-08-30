@@ -511,3 +511,15 @@ Wed Aug 30 2023 17:55:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
     "message": "Required"
   }
 ]
+Wed Aug 30 2023 17:55:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "preRequisiteCourses"
+    ],
+    "message": "Required"
+  }
+]

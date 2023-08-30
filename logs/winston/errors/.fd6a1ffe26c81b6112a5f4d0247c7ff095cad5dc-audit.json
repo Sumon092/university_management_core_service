@@ -214,6 +214,11 @@
             "date": 1693393223413,
             "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-30-08-17-error.log",
             "hash": "4335e8e7045c2de194f85163cd613992d023f55442e24a45f194133e15297770"
+        },
+        {
+            "date": 1693396809809,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-30-08-18-error.log",
+            "hash": "90704a79b4a2a744a05e71a7e1b6e98633f602e40588b41aa1c162427325afec"
         }
     ],
     "hashType": "sha256"

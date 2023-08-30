@@ -9,7 +9,7 @@ import { ICourseData, ICourseFilterRequest } from './course.interface';
 
 const createCourse = async (data: ICourseData): Promise<any> => {
   const { preRequisiteCourses, ...courseData } = data;
-  
+
   const newCourse = await prisma.$transaction(async transactionClient => {
     const result = await transactionClient.course.create({
       data: courseData,
@@ -140,7 +140,50 @@ const getCourses = async (
   };
 };
 
+const getSingleCourse = async (id: string): Promise<Course | null> => {
+  const result = await prisma.course.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      preRequisite: true,
+      preRequisiteFor: true,
+    },
+  });
+
+  return result;
+};
+
+const updateCourse = async (
+  payload: Partial<Course>,
+  id: string
+): Promise<Course | null> => {
+  const result = await prisma.course.update({
+    where: {
+      id,
+    },
+    data: payload,
+    include: {
+      preRequisite: true,
+      preRequisiteFor: true,
+    },
+  });
+  return result;
+};
+
+const deleteCourse = async (id: string): Promise<Course | null> => {
+  const result = await prisma.course.delete({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
+
 export const CourseServices = {
   createCourse,
   getCourses,
+  getSingleCourse,
+  updateCourse,
+  deleteCourse,
 };
