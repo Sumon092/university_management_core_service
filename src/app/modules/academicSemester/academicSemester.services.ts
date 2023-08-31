@@ -50,7 +50,7 @@ const getAllSemester = async (
     andCondition.length > 0 ? { AND: andCondition } : {};
 
   const result = await prisma.academicSemester.findMany({
-    where: whereConditions,
+    // where: whereConditions,
     skip,
     take: limit,
     orderBy:

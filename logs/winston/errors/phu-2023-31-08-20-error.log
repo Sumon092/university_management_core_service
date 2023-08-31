@@ -1,0 +1,186 @@
+Thu Aug 31 2023 20:17:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            status: {
+              contains: "opening",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 31 2023 20:17:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            status: {
+              contains: "10",
+              mode: "insensitive"
+            }
+          },
+          {
+            minCredit: {
+              in: [
+                10
+              ]
+            }
+          },
+          {
+            maxCredit: {
+              in: [
+                10
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 31 2023 20:18:27 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            status: {
+              contains: "10",
+              mode: "insensitive"
+            }
+          },
+          {
+            minCredit: {
+              in: [
+                10
+              ]
+            }
+          },
+          {
+            maxCredit: {
+              in: [
+                10
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 31 2023 20:20:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            status: {
+              contains: "10",
+              mode: "insensitive"
+            }
+          },
+          {
+            minCredit: {
+              in: [
+                10
+              ]
+            }
+          },
+          {
+            maxCredit: {
+              in: [
+                10
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
+Thu Aug 31 2023 20:20:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            status: {
+              contains: "10",
+              mode: "insensitive"
+            }
+          },
+          {
+            minCredit: {
+              in: [
+                10
+              ]
+            }
+          },
+          {
+            maxCredit: {
+              in: [
+                10
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 10,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `contains`. Available options are listed in green.
