@@ -29,6 +29,8 @@ router.get(
   ),
   CourseController.getCourses
 );
+
+
 router.get(
   '/:id',
   auth(
@@ -44,12 +46,16 @@ router.delete(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   CourseController.deleteCourse
 );
+
+
 router.post(
   '/:id/assign-faculties',
   validateRequest(CourseValidationSchema.assignOrRemoveFaculties),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   CourseController.assignFaculties
 );
+
+
 router.delete(
   '/:id/remove-faculties',
   validateRequest(CourseValidationSchema.assignOrRemoveFaculties),
