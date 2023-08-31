@@ -1,4 +1,4 @@
-import { Course } from '@prisma/client';
+import { Course, CourseFaculty } from '@prisma/client';
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
@@ -67,6 +67,18 @@ const deleteCourse = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const assignFaculties = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const payload = req.body.faculties;
+  const result = await CourseServices.assignFaculties(id, payload);
+
+  sendResponse<CourseFaculty[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course faculties assigned successfully',
+    data: result,
+  });
+});
 
 export const CourseController = {
   createCourse,
@@ -74,4 +86,5 @@ export const CourseController = {
   getCourse,
   updateCourse,
   deleteCourse,
+  assignFaculties,
 };
