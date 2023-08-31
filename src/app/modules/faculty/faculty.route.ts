@@ -43,5 +43,11 @@ router.delete(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   facultyController.deleteFaculty
 );
+router.post(
+  '/:id/assign-courses',
+
+  facultyController.assignCourses
+);
+router.delete('/:id/remove-courses', facultyController.removeAssignCourses);
 
 export const facultyRoutes = router;

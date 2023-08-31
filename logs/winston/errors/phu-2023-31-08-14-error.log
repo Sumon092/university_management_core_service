@@ -1,0 +1,71 @@
+Thu Aug 31 2023 14:12:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:13:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:17:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:18:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:20:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:23:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:24:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:26:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Thu Aug 31 2023 14:29:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:30:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:32:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:47:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:49:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:50:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Thu Aug 31 2023 14:51:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
