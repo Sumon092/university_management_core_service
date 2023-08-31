@@ -44,6 +44,16 @@ router.delete(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   CourseController.deleteCourse
 );
-router.post('/:id/assign-faculties', CourseController.assignFaculties);
-router.delete('/:id/remove-faculties', CourseController.removeAssignFaculties);
+router.post(
+  '/:id/assign-faculties',
+  validateRequest(CourseValidationSchema.assignOrRemoveFaculties),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  CourseController.assignFaculties
+);
+router.delete(
+  '/:id/remove-faculties',
+  validateRequest(CourseValidationSchema.assignOrRemoveFaculties),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  CourseController.removeAssignFaculties
+);
 export const CourseRoutes = router;

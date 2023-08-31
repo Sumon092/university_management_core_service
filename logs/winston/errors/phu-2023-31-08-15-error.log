@@ -1,0 +1,12 @@
+Thu Aug 31 2023 15:26:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "courses"
+    ],
+    "message": "courses required"
+  }
+]
