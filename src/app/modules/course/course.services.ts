@@ -155,20 +155,73 @@ const getSingleCourse = async (id: string): Promise<Course | null> => {
 };
 
 const updateCourse = async (
-  payload: Partial<Course>,
+  payload: Partial<ICourseData>,
   id: string
 ): Promise<Course | null> => {
-  const result = await prisma.course.update({
+  const { preRequisiteCourses, ...courseData } = payload;
+  await prisma.$transaction(async transactionClient => {
+    const result = await transactionClient.course.update({
+      where: {
+        id,
+      },
+      data: courseData,
+    });
+    if (!result) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Unable to update course');
+    }
+    if (preRequisiteCourses && preRequisiteCourses.length > 0) {
+      const deletePreRequisite = preRequisiteCourses.filter(
+        coursePreRequisite =>
+          coursePreRequisite.courseId && coursePreRequisite.isDeleted
+      );
+      const newPreRequisite = preRequisiteCourses?.filter(
+        coursePreRequisite =>
+          coursePreRequisite.courseId && !coursePreRequisite.isDeleted
+      );
+      for (let index = 0; index < deletePreRequisite.length; index++) {
+        await transactionClient.corseToPreRequisite.deleteMany({
+          where: {
+            AND: [
+              {
+                courseId: id,
+              },
+              {
+                preRequisiteId: deletePreRequisite[index].courseId,
+              },
+            ],
+          },
+        });
+      }
+      for (let index = 0; index < newPreRequisite.length; index++) {
+        await transactionClient.corseToPreRequisite.create({
+          data: {
+            courseId: id,
+            preRequisiteId: newPreRequisite[index].courseId,
+          },
+        });
+      }
+    }
+    return result;
+  });
+
+  const responseData = await prisma.course.findUnique({
     where: {
       id,
     },
-    data: payload,
     include: {
-      preRequisite: true,
-      preRequisiteFor: true,
+      preRequisite: {
+        include: {
+          preRequisite: true,
+        },
+      },
+      preRequisiteFor: {
+        include: {
+          course: true,
+        },
+      },
     },
   });
-  return result;
+  return responseData;
 };
 
 const deleteCourse = async (id: string): Promise<Course | null> => {
