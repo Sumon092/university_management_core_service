@@ -1,6 +1,6 @@
 export const roomRelationalFields: string[] = ['buildingId'];
 export const roomRelationalFieldsMapper: { [key: string]: string } = {
-  buildingId: 'buildingId',
+  buildingId: 'building',
 };
 
 export const roomsFilterableFields: string[] = [
@@ -8,6 +8,7 @@ export const roomsFilterableFields: string[] = [
   'room_number',
   'id',
   'floor',
+  'building.title',
 ];
 
 export const roomsSearchableFields: string[] = [

@@ -11,6 +11,11 @@ router.post(
   validateRequest(SemesterRegistrationValidation.create),
   SemesterRegistrationController.createSemesterRegistration
 );
+router.patch(
+  '/:id',
+  validateRequest(SemesterRegistrationValidation.update),
+  SemesterRegistrationController.updateOneInDB
+);
 
 router.get(
   '/',

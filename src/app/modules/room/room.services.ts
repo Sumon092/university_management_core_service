@@ -21,7 +21,7 @@ const createRoom = async (data: Room): Promise<Room> => {
 };
 
 export const getAllRoom = async (
-  filters: IRoomsFilterRequest, 
+  filters: IRoomsFilterRequest,
   options: IPaginationOptions
 ): Promise<IGenericResponse<Room[]>> => {
   const { page, limit, sortBy, sortOrder, skip } =
@@ -45,8 +45,12 @@ export const getAllRoom = async (
       })),
     });
   }
-
-  if (Object.keys(filterData).length > 0) {
+  console.log(roomRelationalFieldsMapper);
+  if (
+    filterData &&
+    typeof filterData === 'object' &&
+    Object.keys(filterData).length > 0
+  ) {
     const filterConditions = Object.keys(filterData).map(key => {
       if (roomRelationalFields.includes(key)) {
         return {
@@ -62,9 +66,12 @@ export const getAllRoom = async (
         };
       }
     });
-    andConditions.push({
-      AND: filterConditions,
-    });
+
+    if (filterConditions.length > 0) {
+      andConditions.push({
+        AND: filterConditions,
+      });
+    }
   }
 
   const whereConditions: Prisma.RoomWhereInput =
