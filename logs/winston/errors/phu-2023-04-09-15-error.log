@@ -111,3 +111,13 @@ Invalid `prisma.semesterRegistration.delete()` invocation:
 
 
 An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+Mon Sep 04 2023 15:48:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+Mon Sep 04 2023 15:49:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

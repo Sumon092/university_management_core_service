@@ -6,6 +6,7 @@ import { academicSemesterRoute } from '../modules/academicSemester/academicSemes
 import { BuildingRoutes } from '../modules/building/building.route';
 import { CourseRoutes } from '../modules/course/course.route';
 import { facultyRoutes } from '../modules/faculty/faculty.route';
+import { OfferedCoursesRoutes } from '../modules/offeredCourse/offeredCourse.route';
 import { RoomRoutes } from '../modules/room/room.route';
 import { SemesterRegistrationRoutes } from '../modules/semesterRegistration/semesterRegistration.route';
 import { studentRoutes } from '../modules/student/student.route';
@@ -48,6 +49,10 @@ const moduleRoutes = [
   {
     path: '/semesters-registration',
     routes: SemesterRegistrationRoutes,
+  },
+  {
+    path: '/offered-courses',
+    routes: OfferedCoursesRoutes,
   },
 ];
 
