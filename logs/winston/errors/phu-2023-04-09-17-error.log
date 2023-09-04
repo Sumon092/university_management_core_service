@@ -1,0 +1,38 @@
+Mon Sep 04 2023 17:6:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicDepartmentId"
+    ],
+    "message": "Academic department id is required"
+  }
+]
+Mon Sep 04 2023 17:7:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "semesterRegistrationId"
+    ],
+    "message": "Semester registrations id is required"
+  }
+]
+Mon Sep 04 2023 17:7:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "courseIds"
+    ],
+    "message": "Course Ids required"
+  }
+]
+Mon Sep 04 2023 17:10:54 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Sep 04 2023 17:11:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
