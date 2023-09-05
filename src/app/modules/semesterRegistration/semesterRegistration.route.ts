@@ -8,11 +8,13 @@ const router = express.Router();
 
 router.post(
   '/enrolled-course',
+  validateRequest(SemesterRegistrationValidation.enrollOrWithdrawCourse),
   auth(ENUM_USER_ROLE.STUDENT),
   SemesterRegistrationController.enrollIntoCourse
 );
 router.post(
   '/withdraw-course',
+  validateRequest(SemesterRegistrationValidation.enrollOrWithdrawCourse),
   auth(ENUM_USER_ROLE.STUDENT),
   SemesterRegistrationController.withdrawFromCourse
 );
