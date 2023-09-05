@@ -16,8 +16,21 @@ const createCourseSection = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getAllOfferedCourseSection = catchAsync(
+  async (req: Request, res: Response) => {
+    const result =
+      await OfferedCourseSectionService.getAllOfferedCourseSection();
 
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Offered Course section fetched successfully',
+      data: result,
+    });
+  }
+);
 
-export const OfferedCourseSectionController={
-    createCourseSection
-}
+export const OfferedCourseSectionController = {
+  createCourseSection,
+  getAllOfferedCourseSection,
+};

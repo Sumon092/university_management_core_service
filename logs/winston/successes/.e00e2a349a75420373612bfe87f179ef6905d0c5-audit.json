@@ -339,6 +339,26 @@
             "date": 1693919872176,
             "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-19-success.log",
             "hash": "31f5b98b808d7d28f353e18570063e55af35ddf3eb1fffee76fb336f406df0b9"
+        },
+        {
+            "date": 1693922442184,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-20-success.log",
+            "hash": "06eb8dc30506ce6320f89f5cc9fce0d900aebf18d850420335ffb88abcfa91dd"
+        },
+        {
+            "date": 1693926325800,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-21-success.log",
+            "hash": "890f96b72302e0ec025ad945c93b8ac38bf387bbc42c8b169bb5a32042096ccc"
+        },
+        {
+            "date": 1693930415115,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-22-success.log",
+            "hash": "7f8aab6e962a54df1eb141bb54b0467dd54a7d435641072041e2511fc2e6de5f"
+        },
+        {
+            "date": 1693937128499,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-06-09-00-success.log",
+            "hash": "ab81386afe953fd510907556d618b993f01b294c70afa11a6300264c01f5fc8b"
         }
     ],
     "hashType": "sha256"

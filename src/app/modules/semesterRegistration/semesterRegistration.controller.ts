@@ -72,6 +72,7 @@ const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
 
 const startRegistration = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
+
   const result = await SemesterRegistrationServices.startMyRegistration(
     user?.userId
   );
@@ -85,15 +86,16 @@ const startRegistration = catchAsync(async (req: Request, res: Response) => {
 
 const enrollIntoCourse = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
-  const enrollIntoCourse = await SemesterRegistrationServices.enrollIntoCourse(
+
+  const result = await SemesterRegistrationServices.enrollIntoCourse(
     user?.userId,
     req.body
   );
+  console.log(result, 'result');
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'SemesterRegistration course enrolled successfully',
-    data: enrollIntoCourse,
   });
 });
 

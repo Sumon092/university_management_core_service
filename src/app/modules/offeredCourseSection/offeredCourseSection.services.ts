@@ -21,6 +21,12 @@ const createCourseSection = async (
   return result;
 };
 
+const getAllOfferedCourseSection = async () => {
+  const result = await prisma.offeredCourseSection.findMany();
+  return result;
+};
+
 export const OfferedCourseSectionService = {
   createCourseSection,
+  getAllOfferedCourseSection,
 };
