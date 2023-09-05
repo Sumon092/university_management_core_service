@@ -15,7 +15,7 @@ const createSchedule = async (
   data: OfferedCourseClassSchedule
 ): Promise<OfferedCourseClassSchedule> => {
   await OfferedCourseClassScheduleUtils.checkRoomAvailability(data);
-
+  await OfferedCourseClassScheduleUtils.checkFacultyAvailability(data);
   const result = await prisma.offeredCourseClassSchedule.create({
     data,
     include: {
