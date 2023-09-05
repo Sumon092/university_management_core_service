@@ -2,6 +2,7 @@ import {
   Prisma,
   SemesterRegistration,
   SemesterRegistrationStatus,
+  StudentSemesterRegistration,
 } from '@prisma/client';
 import httpStatus from 'http-status';
 import prisma from '../../../constants/prisma';
@@ -190,7 +191,12 @@ const deleteByIdFromDB = async (id: string): Promise<SemesterRegistration> => {
   return result;
 };
 
-const startMyRegistration = async (authUserId: string) => {
+const startMyRegistration = async (
+  authUserId: string
+): Promise<{
+  semesterRegistration: SemesterRegistration | null;
+  studentSemesterRegistration: StudentSemesterRegistration | null;
+}> => {
   const studentInfo = await prisma.student.findFirst({
     where: {
       studentId: authUserId,
@@ -217,21 +223,38 @@ const startMyRegistration = async (authUserId: string) => {
       'Registration is not started yet'
     );
   }
-  const studentRegistration = await prisma.studentSemesterRegistration.create({
-    data: {
+  let studentRegistration = await prisma.studentSemesterRegistration.findFirst({
+    where: {
       student: {
-        connect: {
-          id: studentInfo?.id,
-        },
+        id: studentInfo?.id,
       },
       semesterRegistration: {
-        connect: {
-          id: semesterRegistrationInfo?.id,
-        },
+        id: semesterRegistrationInfo?.id,
       },
     },
   });
-  return studentRegistration;
+
+  if (!startMyRegistration) {
+    studentRegistration = await prisma.studentSemesterRegistration.create({
+      data: {
+        student: {
+          connect: {
+            id: studentInfo?.id,
+          },
+        },
+        semesterRegistration: {
+          connect: {
+            id: semesterRegistrationInfo?.id,
+          },
+        },
+      },
+    });
+  }
+
+  return {
+    semesterRegistration: semesterRegistrationInfo,
+    studentSemesterRegistration: studentRegistration,
+  };
 };
 
 export const SemesterRegistrationServices = {
