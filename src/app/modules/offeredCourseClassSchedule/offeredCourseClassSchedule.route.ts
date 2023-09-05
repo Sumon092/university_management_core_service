@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post('/create-schedule', ClassScheduleController.createClassSchedule);
 
+router.get('/', ClassScheduleController.getAllClassSchedule);
+
 export const ClassScheduleRoutes = router;
