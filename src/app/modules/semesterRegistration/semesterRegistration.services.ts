@@ -309,48 +309,50 @@ const enrollIntoCourse = async (
       'Offered course section not found'
     );
   }
-  const maxCap = parseInt(offeredCourseSection.maxCapacity);
+
   if (
     offeredCourseSection.maxCapacity &&
     offeredCourseSection.currentlyEnrolledStudents &&
-    offeredCourseSection.currentlyEnrolledStudents >= maxCap
+    offeredCourseSection.currentlyEnrolledStudents >=
+      offeredCourseSection.maxCapacity
   ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Student Capacity full');
   }
-  // await prisma.$transaction(async transactionClient => {
-  //   await transactionClient.studentSemesterRegistrationCourse.create({
-  //     data: {
-  //       studentId: student?.id,
-  //       semesterRegistrationId: semesterRegistration?.id,
-  //       offeredCourseId: payload.offeredCourseId,
-  //       offeredCourseSectionId: payload.offeredCourseSectionId,
-  //     },
-  //   });
-  //   await transactionClient.offeredCourseSection.update({
-  //     where: {
-  //       id: payload.offeredCourseSectionId,
-  //     },
-  //     data: {
-  //       currentlyEnrolledStudents: {
-  //         increment: 1,
-  //       },
-  //     },
-  //   });
-  //   await transactionClient.studentSemesterRegistration.updateMany({
-  //     where: {
-  //       student: {
-  //         id: student.id,
-  //       },
-  //       semesterRegistration: {
-  //         id: semesterRegistration.id,
-  //       },
-  //     },
-  //     data: {
-  //       totalCreditsTaken: {
-  //         increment: offeredCourse.course.credits,
-  //       },
-  //     },
-  //   });
-  // });
+  await prisma.$transaction(async transactionClient => {
+    await transactionClient.studentSemesterRegistrationCourse.create({
+      data: {
+        studentId: student?.id,
+        semesterRegistrationId: semesterRegistration?.id,
+        offeredCourseId: payload.offeredCourseId,
+        offeredCourseSectionId: payload.offeredCourseSectionId,
+      },
+    });
+    await transactionClient.offeredCourseSection.update({
+      where: {
+        id: payload.offeredCourseSectionId,
+      },
+      data: {
+        currentlyEnrolledStudents: {
+          increment: 1,
+        },
+      },
+    });
+    await transactionClient.studentSemesterRegistration.updateMany({
+      where: {
+        student: {
+          id: student.id,
+        },
+        semesterRegistration: {
+          id: semesterRegistration.id,
+        },
+      },
+      data: {
+        totalCreditsTaken: {
+          increment: offeredCourse.course.credits,
+        },
+      },
+    });
+  });
   return {};
 };
 
