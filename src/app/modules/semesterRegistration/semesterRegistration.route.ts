@@ -12,6 +12,12 @@ router.post(
   SemesterRegistrationController.enrollIntoCourse
 );
 router.post(
+  '/withdraw-course',
+  auth(ENUM_USER_ROLE.STUDENT),
+  SemesterRegistrationController.withdrawFromCourse
+);
+
+router.post(
   '/start-registration',
   auth(ENUM_USER_ROLE.STUDENT),
   SemesterRegistrationController.startRegistration
