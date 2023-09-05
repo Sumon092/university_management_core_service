@@ -329,6 +329,16 @@
             "date": 1693908099431,
             "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-05-09-16-error.log",
             "hash": "aa2621e0e00f9ab91d1f30d530fa4112ddc94371f0c4217f0f5c5d4f2c4ce22f"
+        },
+        {
+            "date": 1693916392597,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-05-09-18-error.log",
+            "hash": "470e4cfdd35431d000d0cb223be59e35333cdc400ae407326525d70232511660"
+        },
+        {
+            "date": 1693919872189,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-05-09-19-error.log",
+            "hash": "6ea4d751238b9dcc3c18c802b3cb0b2b2ecaeac93f0c368627ec31ae8fa3c6c3"
         }
     ],
     "hashType": "sha256"

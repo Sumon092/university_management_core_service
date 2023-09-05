@@ -1,0 +1,47 @@
+Tue Sep 05 2023 19:36:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.findFirst()` invocation:
+
+{
+  data: {
+  ~~~~
+    studentId: "c086ba14-aee9-470d-b145-3f9b6a50fbcd",
+    semesterRegistrationId: "280e9fff-21a8-47f2-8c99-dc3b58412e0f",
+    offeredCourseId: "b040b46a-904c-4e6b-a2e6-a84b5d4cc7d8",
+    offeredCourseSectionId: "f528d742-09ee-4380-918c-ccca870d2ece"
+  },
+? where?: StudentSemesterRegistrationCourseWhereInput,
+? orderBy?: StudentSemesterRegistrationCourseOrderByWithRelationInput[] | StudentSemesterRegistrationCourseOrderByWithRelationInput,
+? cursor?: StudentSemesterRegistrationCourseWhereUniqueInput,
+? take?: Int,
+? skip?: Int,
+? distinct?: StudentSemesterRegistrationCourseScalarFieldEnum | StudentSemesterRegistrationCourseScalarFieldEnum[]
+}
+
+Unknown argument `data`. Did you mean `take`? Available options are listed in green.
+Tue Sep 05 2023 19:39:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.findFirst()` invocation:
+
+{
+  where: {
+    data: {
+    ~~~~
+      studentId: "c086ba14-aee9-470d-b145-3f9b6a50fbcd",
+      semesterRegistrationId: "280e9fff-21a8-47f2-8c99-dc3b58412e0f",
+      offeredCourseId: "b040b46a-904c-4e6b-a2e6-a84b5d4cc7d8",
+      offeredCourseSectionId: "f528d742-09ee-4380-918c-ccca870d2ece"
+    },
+?   AND?: StudentSemesterRegistrationCourseWhereInput | StudentSemesterRegistrationCourseWhereInput[],
+?   OR?: StudentSemesterRegistrationCourseWhereInput[],
+?   NOT?: StudentSemesterRegistrationCourseWhereInput | StudentSemesterRegistrationCourseWhereInput[],
+?   semesterRegistrationId?: StringFilter | String,
+?   studentId?: StringFilter | String,
+?   offeredCourseId?: StringFilter | String,
+?   offeredCourseSectionId?: StringFilter | String,
+?   semesterRegistration?: SemesterRegistrationRelationFilter | SemesterRegistrationWhereInput,
+?   stuedet?: StudentRelationFilter | StudentWhereInput,
+?   offeredCourse?: OfferedCourseRelationFilter | OfferedCourseWhereInput,
+?   offeredCourseSection?: OfferedCourseSectionRelationFilter | OfferedCourseSectionWhereInput
+  }
+}
+
+Unknown argument `data`. Available options are listed in green.

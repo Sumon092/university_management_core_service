@@ -7,6 +7,11 @@ import { SemesterRegistrationValidation } from './semesterRegistration.validatio
 const router = express.Router();
 
 router.post(
+  '/enrolled-course',
+  auth(ENUM_USER_ROLE.STUDENT),
+  SemesterRegistrationController.enrollIntoCourse
+);
+router.post(
   '/start-registration',
   auth(ENUM_USER_ROLE.STUDENT),
   SemesterRegistrationController.startRegistration
