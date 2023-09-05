@@ -7,6 +7,11 @@ import { SemesterRegistrationValidation } from './semesterRegistration.validatio
 const router = express.Router();
 
 router.post(
+  '/start-registration',
+  auth(ENUM_USER_ROLE.STUDENT),
+  SemesterRegistrationController.startRegistration
+);
+router.post(
   '/semester-registration',
   validateRequest(SemesterRegistrationValidation.create),
   SemesterRegistrationController.createSemesterRegistration
@@ -45,4 +50,3 @@ router.delete(
 );
 
 export const SemesterRegistrationRoutes = router;
-
