@@ -28,7 +28,7 @@ router.get(
   semesterController.getAllSemester
 );
 router.post(
-  '/add-semester',
+  '/create-semester',
   validateRequest(academicSemesterValidation.create),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   semesterController.addSemester

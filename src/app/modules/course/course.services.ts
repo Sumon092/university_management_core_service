@@ -25,18 +25,6 @@ const createCourse = async (data: ICourseData): Promise<any> => {
     }
 
     if (preRequisiteCourses && preRequisiteCourses.length > 0) {
-      // for (let index = 0; index < preRequisiteCourses.length; index++) {
-      //   try {
-      //     await transactionClient.corseToPreRequisite.create({
-      //       data: {
-      //         courseId: result.id,
-      //         preRequisiteId: preRequisiteCourses[index].courseId,
-      //       },
-      //     });
-      //   } catch (error) {
-      //     console.error(error, 'Error creating prerequisite');
-      //   }
-      // }
       await asyncForEach(
         preRequisiteCourses,
         async (preRequisiteCourse: IPreRequisiteCourseRequest) => {
@@ -308,5 +296,5 @@ export const CourseServices = {
   updateCourse,
   deleteCourse,
   assignFaculties,
-  removeAssignedFaculty, 
+  removeAssignedFaculty,
 };
