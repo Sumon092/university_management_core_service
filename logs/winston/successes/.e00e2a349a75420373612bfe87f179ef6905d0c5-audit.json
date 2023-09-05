@@ -309,6 +309,11 @@
             "date": 1693893603489,
             "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-12-success.log",
             "hash": "0f8e40ea5c77b558c05bde3c60c49e99b5b047df6741919ddcf3de937a04b1a3"
+        },
+        {
+            "date": 1693898638122,
+            "name": "C:\\PH-Next\\SQL-Prisma\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-05-09-13-success.log",
+            "hash": "abd8c0aac01bc81dbf67bef2b7d0e8ec025f2b38af5cefa2ff3d0d609a5efce5"
         }
     ],
     "hashType": "sha256"

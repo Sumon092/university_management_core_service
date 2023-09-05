@@ -1,4 +1,4 @@
-import { WeedDays } from '@prisma/client';
+import { WeedDays } from "@prisma/client";
 
 export const asyncForEach = async (array: any[], callback: any) => {
   if (!Array.isArray(array)) {
