@@ -36,6 +36,11 @@ router.get(
   SemesterRegistrationController.getMyRegistrationData
 );
 router.post(
+  '/:id/start-new-semester',
+  auth(ENUM_USER_ROLE.ADMIN),
+  SemesterRegistrationController.startNewSemester
+);
+router.post(
   '/semester-registration',
   validateRequest(SemesterRegistrationValidation.create),
   SemesterRegistrationController.createSemesterRegistration
