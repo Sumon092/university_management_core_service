@@ -275,7 +275,6 @@ const enrollIntoCourse = async (
   );
 };
 
-
 const withDrawFromCourse = async (
   authUserId: string,
   payload: IEnrollCoursePayload
@@ -288,6 +287,64 @@ const withDrawFromCourse = async (
   );
 };
 
+const confirmMyRegistration = async (
+  authUserId: string
+): Promise<{
+  message: string;
+}> => {
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: SemesterRegistrationStatus.ONGOING,
+    },
+  });
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Register in semester first');
+  }
+  const studentSemesterRegistration =
+    await prisma.studentSemesterRegistration.findFirst({
+      where: {
+        semesterRegistration: {
+          id: semesterRegistration?.id,
+        },
+        student: {
+          studentId: authUserId,
+        },
+      },
+    });
+
+  if (studentSemesterRegistration?.totalCreditsTaken === 0) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'You have not enrolled any semester'
+    );
+  }
+  if (
+    studentSemesterRegistration?.totalCreditsTaken &&
+    semesterRegistration.minCredit &&
+    semesterRegistration.maxCredit &&
+    (studentSemesterRegistration.totalCreditsTaken <
+      semesterRegistration.minCredit ||
+      studentSemesterRegistration.totalCreditsTaken >
+        semesterRegistration.maxCredit)
+  ) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      `Your can take only ${semesterRegistration.minCredit} to ${semesterRegistration.maxCredit} credits`
+    );
+  }
+  await prisma.studentSemesterRegistration.update({
+    where: {
+      id: studentSemesterRegistration?.id,
+    },
+    data: {
+      isConfirmed: true,
+    },
+  });
+  return {
+    message: 'Your registration is confirmed',
+  };
+};
+
 export const SemesterRegistrationServices = {
   createSemesterRegistration,
   getAllRegisteredSemester,
@@ -297,4 +354,5 @@ export const SemesterRegistrationServices = {
   startMyRegistration,
   enrollIntoCourse,
   withDrawFromCourse,
+  confirmMyRegistration,
 };

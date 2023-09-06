@@ -24,6 +24,12 @@ router.post(
   auth(ENUM_USER_ROLE.STUDENT),
   SemesterRegistrationController.startRegistration
 );
+
+router.post(
+  '/confirm-registration',
+  SemesterRegistrationController.confirmMyRegistration
+);
+
 router.post(
   '/semester-registration',
   validateRequest(SemesterRegistrationValidation.create),
