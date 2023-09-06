@@ -11,17 +11,18 @@ datasource db {
 }
 
 model AcademicSemester {
-  id                    String                 @id @default(uuid())
-  year                  Int
-  title                 String
-  isCurrent             Boolean                @default(false)
-  code                  String
-  startMonth            String
-  endMonth              String
-  createdAt             DateTime               @default(now())
-  updatedAt             DateTime               @updatedAt
-  students              Student[]
-  semesterRegistrations SemesterRegistration[]
+  id                     String                  @id @default(uuid())
+  year                   Int
+  title                  String
+  isCurrent              Boolean                 @default(false)
+  code                   String
+  startMonth             String
+  endMonth               String
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  students               Student[]
+  semesterRegistrations  SemesterRegistration[]
+  studentEnrolledCourses StudentEnrolledCourse[]
 
   @@map("academic-semesters")
 }
@@ -77,6 +78,7 @@ model Student {
   academicFacultyId                 String
   studentSemesterRegistrations      StudentSemesterRegistration[]
   StudentSemesterRegistrationCourse StudentSemesterRegistrationCourse[]
+  studentEnrolledCourses            StudentEnrolledCourse[]
 }
 
 model Faculty {
@@ -128,16 +130,17 @@ model Room {
 }
 
 model Course {
-  id              String                @id @default(uuid())
-  title           String
-  code            String
-  credits         Int                   @default(0)
-  createdAt       DateTime              @default(now())
-  updatedAt       DateTime              @updatedAt
-  preRequisite    corseToPreRequisite[] @relation("courseToPrequisite")
-  preRequisiteFor corseToPreRequisite[] @relation("preRequisiteToCourse")
-  faculties       CourseFaculty[]
-  OfferedCourses  OfferedCourse[]
+  id                     String                  @id @default(uuid())
+  title                  String
+  code                   String
+  credits                Int                     @default(0)
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  preRequisite           corseToPreRequisite[]   @relation("courseToPrequisite")
+  preRequisiteFor        corseToPreRequisite[]   @relation("preRequisiteToCourse")
+  faculties              CourseFaculty[]
+  OfferedCourses         OfferedCourse[]
+  studentEnrolledCourses StudentEnrolledCourse[]
 
   @@map("courses")
 }
@@ -251,7 +254,7 @@ model StudentSemesterRegistrationCourse {
   semesterRegistrationId String
   semesterRegistration   SemesterRegistration @relation(fields: [semesterRegistrationId], references: [id])
   studentId              String
-  stuedet                Student              @relation(fields: [studentId], references: [id])
+  student                Student              @relation(fields: [studentId], references: [id])
   offeredCourseId        String
   offeredCourse          OfferedCourse        @relation(fields: [offeredCourseId], references: [id])
   offeredCourseSectionId String
@@ -259,6 +262,24 @@ model StudentSemesterRegistrationCourse {
 
   @@id([semesterRegistrationId, studentId, offeredCourseId])
   @@map("student_semester_registration_course")
+}
+
+model StudentEnrolledCourse {
+  id                 String                      @id @default(uuid())
+  createdAt          DateTime                    @default(now())
+  updatedAt          DateTime                    @updatedAt
+  studentId          String
+  student            Student                     @relation(fields: [studentId], references: [id])
+  courseId           String
+  course             Course                      @relation(fields: [courseId], references: [id])
+  academicSemesterId String
+  academicSemester   AcademicSemester            @relation(fields: [academicSemesterId], references: [id])
+  grade              String?
+  point              Float?                      @default(0)
+  totalMarks         Int?                        @default(0)
+  status             StudentEnrolledCourseStatus @default(ONGOING)
+
+  @@map("student_enrolled_courses")
 }
 
 enum WeedDays {
@@ -275,4 +296,10 @@ enum SemesterRegistrationStatus {
   UPCOMING
   ONGOING
   ENDED
+}
+
+enum StudentEnrolledCourseStatus {
+  ONGOING
+  COMPLETED
+  WITHDRAWN
 }
