@@ -1,0 +1,41 @@
+Thu Sep 07 2023 1:1:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
+Thu Sep 07 2023 1:1:45 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:9:17 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:10:1 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:22:48 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:26:4 } [PH] error: 
+Invalid `prisma.studentEnrolledCourse.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:27:37 } [PH] error: 
+Invalid `prisma.studentEnrolledCourse.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:29:43 } [PH] error: 
+Invalid `prisma.studentEnrolledCourse.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Thu Sep 07 2023 1:32:20 } [PH] error: 
+Invalid `prisma.studentEnrolledCourse.findFirst()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.

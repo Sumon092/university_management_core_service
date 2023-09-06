@@ -1,0 +1,27 @@
+Wed Sep 06 2023 20:44:6 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.create()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Wed Sep 06 2023 20:47:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
+Wed Sep 06 2023 20:47:48 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.create()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Wed Sep 06 2023 20:50:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
+Wed Sep 06 2023 20:51:51 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester registration not ended yet
+Wed Sep 06 2023 20:52:51 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Can only move from ONGOING to ENDED
+Wed Sep 06 2023 20:53:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
+Wed Sep 06 2023 20:54:3 } [PH] error: 
+Invalid `prisma.studentSemesterPayment.create()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Wed Sep 06 2023 20:57:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
+Wed Sep 06 2023 20:57:56 } [PH] error: 
+Invalid `prisma.studentSemesterRegistrationCourse.findMany()` invocation:
+
+
+Transaction API error: Transaction already closed: A query cannot be executed on a committed transaction.
+Wed Sep 06 2023 20:59:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started
