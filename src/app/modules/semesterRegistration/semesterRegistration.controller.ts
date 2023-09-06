@@ -127,6 +127,22 @@ const confirmMyRegistration = catchAsync(
     });
   }
 );
+const getMyRegistrationData = catchAsync(
+  async (req: Request, res: Response) => {
+    const user = req.user;
+
+    const result = await SemesterRegistrationServices.getMyRegistrationData(
+      user?.userId
+    );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'My Registration data fetched',
+      data: result,
+    });
+  }
+);
 
 export const SemesterRegistrationController = {
   createSemesterRegistration,
@@ -138,4 +154,5 @@ export const SemesterRegistrationController = {
   enrollIntoCourse,
   withdrawFromCourse,
   confirmMyRegistration,
+  getMyRegistrationData,
 };
