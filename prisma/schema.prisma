@@ -83,6 +83,7 @@ model Student {
   studentEnrolledCourses            StudentEnrolledCourse[]
   studentEnrolledCourseMarks        StudentEnrolledCourseMark[]
   studentSemesterPayments           StudentSemesterPayment[]
+  StduentAcademicInfoes             StudentAcademicInfo[]
 
   @@map("students")
 }
@@ -322,6 +323,18 @@ model StudentSemesterPayment {
   paymentStatus        PaymentStatus    @default(PENDING)
 
   @@map("students_semester_payments")
+}
+
+model StudentAcademicInfo {
+  id                    String   @id @default(uuid())
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  studentId             String
+  student               Student  @relation(fields: [studentId], references: [id])
+  totalCompletedCredits Int?     @default(0)
+  cgpa                  Float?   @default(0)
+
+  @@map("students_academic_infoes")
 }
 
 enum WeedDays {
