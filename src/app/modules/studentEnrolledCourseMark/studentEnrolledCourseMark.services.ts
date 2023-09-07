@@ -2,6 +2,7 @@ import {
   ExamType,
   PrismaClient,
   StudentEnrolledCourseMark,
+  StudentEnrolledCourseStatus,
 } from '@prisma/client';
 import {
   DefaultArgs,
@@ -179,8 +180,75 @@ const updateMarks = async (payload: any) => {
   return updateMark;
 };
 
+const updateFinalMarks = async (payload: any) => {
+  const { studentId, academicSemesterId, courseId } = payload;
+  const studentEnrolledCourse = await prisma.studentEnrolledCourse.findFirst({
+    where: {
+      student: {
+        id: studentId,
+      },
+      academicSemester: {
+        id: academicSemesterId,
+      },
+      course: {
+        id: courseId,
+      },
+    },
+  });
+  if (!studentEnrolledCourse) {
+    throw new ApiError(
+      httpStatus.NOT_FOUND,
+      'Student enrolled course data not found'
+    );
+  }
+  const studentEnrolledCourseMark =
+    await prisma.studentEnrolledCourseMark.findMany({
+      where: {
+        student: {
+          id: studentId,
+        },
+      },
+    });
+  // console.log(studentEnrolledCourseMark);
+  if (!studentEnrolledCourseMark.length) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Marks not found');
+  }
+  const midtermMarks =
+    studentEnrolledCourseMark.find(item => item.examType === ExamType.MIDTERM)
+      ?.marks || 0;
+  const finalMarks =
+    studentEnrolledCourseMark.find(item => item.examType === ExamType.FINAL)
+      ?.marks || 0;
+
+  const totalFinalMarks =
+    Math.ceil(midtermMarks * 0.4) + Math.ceil(finalMarks * 0.6);
+  const result =
+    StudentEnrolledCourseMarkUtils.getGradeFromMarks(totalFinalMarks);
+
+  await prisma.studentEnrolledCourse.updateMany({
+    where: {
+      student: {
+        id: studentId,
+      },
+      academicSemester: {
+        id: academicSemesterId,
+      },
+      course: {
+        id: courseId,
+      },
+    },
+    data: {
+      grade: result.grade,
+      point: result.point,
+      totalMarks: totalFinalMarks,
+      status: StudentEnrolledCourseStatus.COMPLETED,
+    },
+  });
+};
+
 export const StudentEnrolledCourseMarkService = {
   createdStudentEnrolledCourseDefaultMark,
   updateMarks,
   getAllFromDB,
+  updateFinalMarks,
 };
