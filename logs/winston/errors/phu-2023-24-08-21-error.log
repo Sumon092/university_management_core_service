@@ -1,5 +1,0 @@
-Thu Aug 24 2023 21:39:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.student.delete()` invocation:
-
-
-An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

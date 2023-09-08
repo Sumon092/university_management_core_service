@@ -7,7 +7,9 @@ import {
   DefaultArgs,
   PrismaClientOptions,
 } from '@prisma/client/runtime/library';
+import httpStatus from 'http-status';
 import prisma from '../../../constants/prisma';
+import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
@@ -142,7 +144,57 @@ const getAllFromDB = async (
 };
 
 const updateMarks = async (payload: any) => {
-  console.log(payload);
+  const { studentId, academicSemesterId, courseId, marks, examType } = payload;
+  const studentEnrolledCourseMark =
+    await prisma.studentEnrolledCourseMark.findFirst({
+      where: {
+        student: {
+          id: studentId,
+        },
+        academicSemester: {
+          id: academicSemesterId,
+        },
+        studentEnrolledCourse: {
+          course: {
+            id: courseId,
+          },
+        },
+        examType,
+      },
+    });
+  if (!studentEnrolledCourseMark) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Student not found');
+  }
+  let grade = '';
+  if (marks >= 0 && marks <= 39) {
+    grade = 'F';
+  } else if (marks >= 40 && marks <= 49) {
+    grade = 'D';
+  } else if (marks >= 50 && marks <= 54) {
+    grade = 'C';
+  } else if (marks >= 55 && marks <= 59) {
+    grade = 'C+';
+  } else if (marks >= 60 && marks <= 64) {
+    grade = 'B';
+  } else if (marks >= 65 && marks <= 69) {
+    grade = 'B+';
+  } else if (marks >= 70 && marks <= 74) {
+    grade = 'A-';
+  } else if (marks >= 75 && marks <= 79) {
+    grade = 'A';
+  } else if (marks >= 80 && marks <= 100) {
+    grade = 'A+';
+  }
+  const updateMark = await prisma.studentEnrolledCourseMark.update({
+    where: {
+      id: studentEnrolledCourseMark.id,
+    },
+    data: {
+      marks,
+      grade,
+    },
+  });
+  return updateMark;
 };
 
 export const StudentEnrolledCourseMarkService = {
