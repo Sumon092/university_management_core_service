@@ -301,7 +301,7 @@ model StudentEnrolledCourseMark {
   academicSemesterId      String
   academicSemester        AcademicSemester      @relation(fields: [academicSemesterId], references: [id])
   grade                   String?
-  marks                   String?
+  marks                   Int?
   examType                ExamType              @default(MIDTERM)
 
   @@map("student_enrolled_course_mark")
