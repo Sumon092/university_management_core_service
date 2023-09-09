@@ -53,12 +53,14 @@ const getAllClassSchedule = async (
         if (offeredCourseClassScheduleRelationalFields.includes(key)) {
           return {
             [offeredCourseClassScheduleRelationalFieldsMapper[key]]: {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               id: (filterData as any)[key],
             },
           };
         } else {
           return {
             [key]: {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               equals: (filterData as any)[key],
             },
           };
