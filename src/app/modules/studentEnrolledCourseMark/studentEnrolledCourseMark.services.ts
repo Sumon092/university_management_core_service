@@ -145,6 +145,7 @@ const getAllFromDB = async (
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const updateMarks = async (payload: any) => {
   const { studentId, academicSemesterId, courseId, marks, examType } = payload;
   const studentEnrolledCourseMark =
@@ -180,6 +181,7 @@ const updateMarks = async (payload: any) => {
   return updateMark;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const updateFinalMarks = async (payload: any) => {
   const { studentId, academicSemesterId, courseId } = payload;
   const studentEnrolledCourse = await prisma.studentEnrolledCourse.findFirst({
