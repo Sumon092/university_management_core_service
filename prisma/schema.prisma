@@ -229,7 +229,7 @@ model OfferedCourseClassSchedule {
   id                     String               @id @default(uuid())
   startTime              String
   endTime                String
-  dayOfWeek              WeedDays
+  dayOfWeek              WeekDays
   createdAt              DateTime             @default(now())
   updatedAt              DateTime             @updatedAt
   offeredCourseSectionId String
@@ -337,7 +337,7 @@ model StudentAcademicInfo {
   @@map("students_academic_infoes")
 }
 
-enum WeedDays {
+enum WeekDays {
   SATURDAY
   SUNDAY
   MONDAY
