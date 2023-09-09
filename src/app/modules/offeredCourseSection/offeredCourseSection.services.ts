@@ -37,7 +37,7 @@ const createCourseSection = async (
       httpStatus.BAD_REQUEST,
       'Offered course section is already exist'
     );
-  }
+  } 
   const createSection = await prisma.$transaction(async transactionClient => {
     const createOfferedCourseSection =
       await transactionClient.offeredCourseSection.create({

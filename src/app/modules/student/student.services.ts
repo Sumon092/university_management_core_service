@@ -138,10 +138,42 @@ const deleteStudent = async (id: string): Promise<Student | null> => {
   return deletedId;
 };
 
+const myCourses = async (
+  authUserId: string,
+  filter: {
+    courseId?: string | undefined;
+    academicSemesterId?: string | undefined;
+  }
+) => {
+  if (!filter.academicSemesterId) {
+    const currentSemester = await prisma.academicSemester.findFirst({
+      where: {
+        isCurrent: true,
+      },
+    });
+    filter.academicSemesterId = currentSemester?.id;
+  }
+
+  const result = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      student: {
+        studentId: authUserId,
+      },
+      ...filter,
+    },
+    include: {
+      course: true,
+    },
+  });
+
+  return result;
+};
+
 export const studentService = {
   createStudent,
   getStudents,
   getStudent,
   updateStudent,
   deleteStudent,
+  myCourses,
 };
