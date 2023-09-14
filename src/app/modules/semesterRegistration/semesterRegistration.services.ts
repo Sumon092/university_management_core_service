@@ -517,6 +517,32 @@ const startNewSemester = async (
   };
 };
 
+const getMySemRegCourses = async (authUserId: string) => {
+  const student = await prisma.student.findFirst({
+    where: {
+      studentId: authUserId,
+    },
+  });
+  console.log(student);
+  const semReg = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: {
+        in: [
+          SemesterRegistrationStatus.UPCOMING,
+          SemesterRegistrationStatus.ONGOING,
+        ],
+      },
+    },
+    include: {
+      academicSemester: true,
+    },
+  });
+  if (!semReg) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'No semester registration found');
+  }
+  console.log(semReg);
+};
+
 export const SemesterRegistrationServices = {
   createSemesterRegistration,
   getAllRegisteredSemester,
@@ -529,4 +555,5 @@ export const SemesterRegistrationServices = {
   confirmMyRegistration,
   getMyRegistrationData,
   startNewSemester,
+  getMySemRegCourses,
 };
