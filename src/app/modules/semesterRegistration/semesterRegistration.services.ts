@@ -5,6 +5,7 @@ import {
   Prisma,
   SemesterRegistration,
   SemesterRegistrationStatus,
+  StudentEnrolledCourseStatus,
   StudentSemesterRegistration,
   StudentSemesterRegistrationCourse,
 } from '@prisma/client';
@@ -524,7 +525,7 @@ const getMySemRegCourses = async (authUserId: string) => {
     },
   });
   console.log(student);
-  const semReg = await prisma.semesterRegistration.findFirst({
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
     where: {
       status: {
         in: [
@@ -535,12 +536,75 @@ const getMySemRegCourses = async (authUserId: string) => {
     },
     include: {
       academicSemester: true,
+      studentSemesterRegistrationCourse: true,
     },
   });
-  if (!semReg) {
+  if (!semesterRegistration) {
     throw new ApiError(httpStatus.NOT_FOUND, 'No semester registration found');
   }
-  console.log(semReg);
+  const studentCompletedCourse = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      status: StudentEnrolledCourseStatus.COMPLETED,
+      student: {
+        id: student?.id,
+      },
+    },
+    include: {
+      course: true,
+    },
+  });
+  console.log(studentCompletedCourse, 'completed course');
+  const studentOngoingCourse =
+    await prisma.studentSemesterRegistrationCourse.findMany({
+      where: {
+        student: {
+          id: student?.id,
+        },
+        semesterRegistration: {
+          id: semesterRegistration?.id,
+        },
+      },
+      include: {
+        offeredCourse: true,
+        offeredCourseSection: true,
+      },
+    });
+  console.log(studentOngoingCourse, 'ongoing course');
+  const offeredCourse = await prisma.offeredCourse.findMany({
+    where: {
+      semesterRegistration: {
+        id: semesterRegistration?.id,
+      },
+      academicDepartment: {
+        id: student?.academicDepartmentId,
+      },
+    },
+    include: {
+      course: {
+        include: {
+          preRequisite: {
+            include: {
+              preRequisite: true,
+            },
+          },
+        },
+      },
+      offeredCourseSections: {
+        include: {
+          offeredCourseClassSchedules: {
+            include: {
+              room: {
+                include: {
+                  building: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+  console.log(offeredCourse, 'offered course');
 };
 
 export const SemesterRegistrationServices = {

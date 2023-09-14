@@ -70,6 +70,9 @@ const enrollIntoCourse = async (
         offeredCourseId: payload.offeredCourseId,
         offeredCourseSectionId: payload.offeredCourseSectionId,
       },
+      include: {
+        semesterRegistration: true,
+      },
     });
     await transactionClient.offeredCourseSection.update({
       where: {
