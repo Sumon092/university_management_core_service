@@ -178,6 +178,84 @@ const removeCourses = async (
   return assignCoursesData;
 };
 
+const myCourses = async (
+  authUser: { id: string; role: string },
+  filter: {
+    academicSemesterId?: string | null | undefined;
+    courseId?: string | null | undefined;
+  }
+) => {
+  if (!filter.academicSemesterId) {
+    const currentSemester = await prisma.academicSemester.findFirst({
+      where: {
+        isCurrent: true,
+      },
+    });
+    filter.academicSemesterId = currentSemester?.id;
+  }
+  const offeredCourseSections = await prisma.offeredCourseSection.findMany({
+    where: {
+      offeredCourseClassSchedules: {
+        some: {
+          faculty: {
+            facultyId: authUser.id,
+          },
+        },
+      },
+      offeredCourse: {
+        semesterRegistration: {
+          academicSemester: {
+            id: filter.academicSemesterId,
+          },
+        },
+      },
+    },
+    include: {
+      offeredCourse: {
+        include: {
+          course: true,
+        },
+      },
+      offeredCourseClassSchedules: {
+        include: {
+          room: {
+            include: {
+              building: true,
+            },
+          },
+        },
+      },
+    },
+  });
+  const classAndSchedule = offeredCourseSections.reduce(
+    (acc: any, obj: any) => {
+      const course = obj.offeredCourse?.course;
+      const classSchedules = obj.offeredCourseClassSchedules;
+      const existingCourse = acc.find(
+        (item: any) => item.course.id === course?.id
+      );
+      if (existingCourse) {
+        existingCourse.sections?.push({
+          section: obj,
+          classSchedules,
+        });
+      } else {
+        acc.push({
+          course,
+          sections: [
+            {
+              section: obj,
+            },
+          ],
+        });
+      }
+      return acc;
+    },
+    []
+  );
+  return classAndSchedule;
+};
+
 export const facultyService = {
   createFacultyData,
   getFaculties,
@@ -186,4 +264,5 @@ export const facultyService = {
   deleteFaculty,
   assignCourses,
   removeCourses,
+  myCourses,
 };

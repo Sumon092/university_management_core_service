@@ -19,6 +19,11 @@ router.post(
   facultyController.createFacultyData
 );
 router.get(
+  '/my-courses',
+  auth(ENUM_USER_ROLE.FACULTY),
+  facultyController.myCourses
+);
+router.get(
   '/',
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,

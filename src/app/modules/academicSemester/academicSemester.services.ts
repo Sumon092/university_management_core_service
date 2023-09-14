@@ -1,18 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AcademicSemester, Prisma } from '@prisma/client';
+import httpStatus from 'http-status';
 import prisma from '../../../constants/prisma';
+import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { academicSemesterSearchAbleFields } from './academicSemester.constants';
+import {
+  EVENT_ACADEMIC_SEMESTER_CREATED,
+  academicSemesterSearchAbleFields,
+  academicSemesterTitleCodeMapper,
+} from './academicSemester.constants';
 import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
+import { RedisClient } from '../../../shared/redis';
 
 const addSemester = async (
   academicSemesterData: AcademicSemester
 ): Promise<AcademicSemester> => {
+  if (
+    academicSemesterTitleCodeMapper[academicSemesterData.title] !==
+    academicSemesterData.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semester Code');
+  }
   const result = await prisma.academicSemester.create({
     data: academicSemesterData,
   });
+  if(result){
+    await RedisClient.publish(EVENT_ACADEMIC_SEMESTER_CREATED,JSON.stringify(result))
+  }
   return result;
 };
 
@@ -50,7 +66,7 @@ const getAllSemester = async (
     andCondition.length > 0 ? { AND: andCondition } : {};
 
   const result = await prisma.academicSemester.findMany({
-    // where: whereConditions,
+    where: whereConditions,
     skip,
     take: limit,
     orderBy:

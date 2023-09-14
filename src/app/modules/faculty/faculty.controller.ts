@@ -93,6 +93,20 @@ const removeAssignCourses = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const myCourses = catchAsync(async (req: Request, res: Response) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = req.user as any;
+  const filter = pick(req.query, ['academicSemesterId', 'courseId']);
+
+  const result = await facultyService.myCourses(user, filter);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'My Courses fetched  successfully',
+    data: result,
+  });
+});
 
 export const facultyController = {
   createFacultyData,
@@ -102,4 +116,5 @@ export const facultyController = {
   deleteFaculty,
   assignCourses,
   removeAssignCourses,
+  myCourses,
 };
