@@ -27,18 +27,19 @@ router.get(
   ),
   semesterController.getAllSemester
 );
+router.patch(
+  '/:id',
+  validateRequest(academicSemesterValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  semesterController.updateSemester
+);
 router.post(
   '/create-semester',
   validateRequest(academicSemesterValidation.create),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   semesterController.addSemester
 );
-router.post(
-  '/update/:id',
-  validateRequest(academicSemesterValidation.update),
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  semesterController.addSemester
-);
+
 router.delete(
   '/delete/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
