@@ -6,13 +6,13 @@ import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { RedisClient } from '../../../shared/redis';
 import {
   EVENT_ACADEMIC_SEMESTER_CREATED,
   academicSemesterSearchAbleFields,
   academicSemesterTitleCodeMapper,
 } from './academicSemester.constants';
 import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
-import { RedisClient } from '../../../shared/redis';
 
 const addSemester = async (
   academicSemesterData: AcademicSemester
@@ -26,8 +26,11 @@ const addSemester = async (
   const result = await prisma.academicSemester.create({
     data: academicSemesterData,
   });
-  if(result){
-    await RedisClient.publish(EVENT_ACADEMIC_SEMESTER_CREATED,JSON.stringify(result))
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_SEMESTER_CREATED,
+      JSON.stringify(result)
+    );
   }
   return result;
 };
@@ -36,8 +39,6 @@ const getAllSemester = async (
   filters: IAcademicSemesterFilterRequest,
   options: IPaginationOptions
 ): Promise<IGenericResponse<AcademicSemester[]>> => {
-  console.log(filters);
-
   const { page, limit, skip } = paginationHelpers.calculatePagination(options);
   const { searchTerm, ...filterData } = filters;
   const andCondition = [];
