@@ -6,9 +6,14 @@ import { academicFacultyController } from './academicFaculty.controller';
 import { AcademicFacultyValidation } from './academicFaculty.validation';
 
 const router = express.Router();
-
+router.patch(
+  '/:id',
+  validateRequest(AcademicFacultyValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  academicFacultyController.updateFaculty
+);
 router.get(
-  '/get-faculty/:id',
+  '/:id',
   auth(
     ENUM_USER_ROLE.SUPER_ADMIN,
     ENUM_USER_ROLE.ADMIN,
@@ -35,14 +40,8 @@ router.post(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   academicFacultyController.createFaculty
 );
-router.patch(
-  '/update/:id',
-  validateRequest(AcademicFacultyValidation.update),
-  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
-  academicFacultyController.updateFaculty
-);
 router.delete(
-  '/delete/:id',
+  '/:id',
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   academicFacultyController.deleteFaculty
 );
