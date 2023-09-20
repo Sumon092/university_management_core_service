@@ -24,11 +24,11 @@ const moduleRoutes = [
     routes: academicSemesterRoute,
   },
   {
-    path: '/aca-faculties',
+    path: '/academic-faculties',
     routes: academicFacultyRoutes,
   },
   {
-    path: '/departments',
+    path: '/academic-departments',
     routes: departmentRoutes,
   },
   {
