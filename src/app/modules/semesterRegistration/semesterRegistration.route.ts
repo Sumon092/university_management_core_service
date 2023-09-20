@@ -46,7 +46,7 @@ router.post(
   SemesterRegistrationController.startNewSemester
 );
 router.post(
-  '/semester-registration',
+  '/',
   validateRequest(SemesterRegistrationValidation.create),
   SemesterRegistrationController.createSemesterRegistration
 );

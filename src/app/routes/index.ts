@@ -68,15 +68,15 @@ const moduleRoutes = [
     routes: ClassScheduleRoutes,
   },
   {
-    path: '/marks',
+    path: '/student-enrolled-course-marks',
     routes: StudentEnrolledCourseMarkRoutes,
   },
   {
-    path: '/enrolled-courses',
+    path: '/student-enrolled-courses',
     routes: studentEnrolledCourseRoutes,
   },
   {
-    path: '/semester-payment',
+    path: '/student-semester-payments',
     routes: studentSemesterPaymentRoutes,
   },
 ];
