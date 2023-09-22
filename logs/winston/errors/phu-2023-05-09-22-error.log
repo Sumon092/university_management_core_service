@@ -1,9 +1,0 @@
-Tue Sep 05 2023 22:4:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
-
-
-Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`,`offeredCourseSectionId`)
-Tue Sep 05 2023 22:6:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course section not found
-Tue Sep 05 2023 22:18:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ There is already an ONGOING semester registered
-Tue Sep 05 2023 22:19:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered Course  not found
-Tue Sep 05 2023 22:19:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course section not found

@@ -1,6 +1,0 @@
-Wed Sep 06 2023 1:27:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
-Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
-
-
-Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`,`offeredCourseSectionId`)
-Wed Sep 06 2023 1:46:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student Capacity full
