@@ -9,6 +9,7 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { RedisClient } from '../../../shared/redis';
 import {
   EVENT_ACADEMIC_SEMESTER_CREATED,
+  EVENT_ACADEMIC_SEMESTER_UPDATED,
   academicSemesterSearchAbleFields,
   academicSemesterTitleCodeMapper,
 } from './academicSemester.constants';
@@ -112,6 +113,12 @@ const updateSemester = async (
       students: true,
     },
   });
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_SEMESTER_UPDATED,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 
